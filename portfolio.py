@@ -186,6 +186,6 @@ if __name__ == "__main__":
 
 
 		print("\nLast Runtime: ", end="")
-		print(time.strftime("%Y-%m-%d %H:%M:%S",time.gmtime()))
+		print(time.strftime("%Y-%m-%d %H:%M:%S",time.localtime()))
 		time.sleep(1800)
 
