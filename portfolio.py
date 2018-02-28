@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 # Basic script to output Portfolio to console
 # Can specify all time high (so as get output detailing how far off it is) and set Target Prices.
 
@@ -56,7 +58,7 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	shareDictGrowth['BIOG.L'] = ['BIOG',	'Biotech Growth Trust',				'GBX',		0,		 836,			500]
 	shareDictGrowth['PIN.L'] =  ['PIN',		'Pantheon',							'GBX',		0,		 1929,			1200] 
 	shareDictGrowth['HGT.L'] =  ['HGT',		'HG Capital',						'GBX',		0,		 1797,			1200] 
-	shareDictGrowth['IBTS.L'] = ['IBTS',	'iShares US Treas 1-3',				'GBX',		0,		 109,			85]
+	shareDictGrowth['IBTS.L'] = ['IBTS',	'iShares US Treas 1-3',				'GBX',		2,		 109,			85]
 
 def GetTabs(Ticker):
 	"""Get the number of tabs depending on length of ticker so stuff lines up"""
@@ -166,7 +168,7 @@ if __name__ == "__main__":
 
 	# This runs every half hour or so, just leaving it in a terminal
 	while True:
-		os.system('cls')
+		os.system('clear')
 
 
 		#print("= Currencies =\n==============")
