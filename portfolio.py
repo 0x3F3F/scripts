@@ -158,6 +158,8 @@ def GetAndPrintCurrencies(currDict, refreshNeeded):
 
 if __name__ == "__main__":
 
+	# As running at startup, enter a pause to give internet time to come up	
+	time.sleep(5)
 
 	# Use Ordered dicts to store all shares we're fetching.
 	currDict = collections.OrderedDict() 
