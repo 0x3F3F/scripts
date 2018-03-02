@@ -74,17 +74,18 @@ def GetTabs(Ticker):
 def PrintSharePriceWithDPS(fPrice, v):
 	"""Print the share price with DPS as specified in shareDict"""
 
-	# How many tabs to insert after price
-	endTab='\t'
-	
+	# Copy price to string with correct DPs
 	if(v[IDX_PRINT_DPS] == 0):
-		print("%0.0f"%fPrice, end=endTab ) 
+		sPrice = "%0.0f"%fPrice
 	elif(v[IDX_PRINT_DPS] == 1):
-		print("%0.1f"%fPrice, end=endTab ) 
+		sPrice = "%0.1f"%fPrice
 	elif(v[IDX_PRINT_DPS] == 2):
-		print("%0.2f"%fPrice, end=endTab ) 
+		sPrice = "%0.2f"%fPrice
 	else:
-		print(fPrice, end=endTab)
+		sPrice = "%0.0f"%fPrice
+
+	# Print price, space padded to 8 Chars
+	print(sPrice.ljust(8), end='' ) 
 
 
 def PrintPercentOffAllTimeHigh(fPrice, v):
@@ -130,7 +131,7 @@ def GetAndPrintSharePrices(shareDict):
 	for k, v in shareDict.items():
 
 		tabs = GetTabs(v[IDX_ACTUAL_TICKER])
-		print("  " + v[IDX_ACTUAL_TICKER] , end=tabs)
+		print("  " + v[IDX_ACTUAL_TICKER].ljust(10) , end='')
 
 		# Get the index in the pricesList and get da price
 		index = list(shareDict.keys()).index(k)
@@ -174,20 +175,20 @@ if __name__ == "__main__":
 		#print("= Currencies =\n==============")
 		#GetAndPrintCurrencies(currDict, NeedRefresh)
 
-		print("\n\n= Indices =\n===========")
+		print("= Indices =\n===========")
 		GetAndPrintSharePrices(shareDictIndexes)
 
-		print("\n\n= Commodities =\n==============")
+		print("\n= Commodities =\n===============")
 		GetAndPrintSharePrices(pmDict)
 
-		print("\n\n= Multi Asset Portfolio =\n=========================")
+		print("\n= Multi Asset Portfolio =\n=========================")
 		GetAndPrintSharePrices(shareDictMultiAss)
 
-		print("\n\n= Growth Portfolio =\n=====================")
+		print("\n= Growth Portfolio =\n====================")
 		GetAndPrintSharePrices(shareDictGrowth)
 
 
 		print("\nLast Runtime: ", end="")
-		print(time.strftime("%Y-%m-%d %H:%M:%S",time.localtime()))
+		print(time.strftime("%H:%M:%S",time.localtime()))
 		time.sleep(1800)
 
