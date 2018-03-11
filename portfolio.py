@@ -1,5 +1,14 @@
 #!/usr/bin/python3
 
+######################################################################################
+# Name:			portfolio.py
+# Author:		Iain Benson
+# Description:	Portfolio monitor that grabs prices from Yahoo price feed
+#				Allows secififcation of NAmes, Dps and to set target prices
+# 
+# Dependancies:	None
+#
+#####################################################################################
 # Basic script to output Portfolio to console
 # Can specify all time high (so as get output detailing how far off it is) and set Target Prices.
 

@@ -1,9 +1,18 @@
-# Convert markdown to pdf
-# As not enough space on work PC to install pandoc, I came up with this.
-# Requires grip and wkhtmltopdf
+#!/usr/bin/python3
+
+######################################################################################
+# Name:			md2pdf.py
+# Author:		Iain Benson
+# Description:	Converts markdown to pdf
+#				Uses Github CSS which looks nicer than pandoc (default anyway)
+# 
+# Dependancies:	grip, wkhtmltopdf
+#
+#####################################################################################
 
 import os, sys
 import re
+import platform
 
 noParams = len(sys.argv)-1
 
@@ -36,8 +45,14 @@ else:
 			tempFile.write(updatedContents)
 
 		# Convert to pdf using wkhtmltopdf
-		print("Running wkhtmltopdf")
-		command = r'"C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe" '+htmlFilename + r' ' + pdfFilename
+		# Cos windows is crap, I had to use full path - which meants this:
+		print("Running wkhtmltopdf ", end="")
+		if platform.system() == "Linux":
+			print("(Linux)")
+			command = r'"wkhtmltopdf" '+htmlFilename + r' ' + pdfFilename
+		else:
+			print("(Windows)")
+			command = r'"C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe" '+htmlFilename + r' ' + pdfFilename
 		os.system(command)
 
 		# Removing intermediate html file
