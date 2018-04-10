@@ -15,7 +15,7 @@
 import requests
 import collections
 import os
-import time
+import time, datetime
 
 try:
 	import json
@@ -130,9 +130,13 @@ def GetAndPrintSharePrices(shareDict):
 	for k,w in shareDict.items():
 		yahooQuery=yahooQuery + "," + k
 
-	yahooJSON = requests.get(yahooQuery)
-	yahooPriceInfo = json.loads(yahooJSON.text)
-	
+	try:
+		yahooJSON = requests.get(yahooQuery)
+		yahooPriceInfo = json.loads(yahooJSON.text)
+	except:
+		print("Issue fetching prices")
+		return
+
 	# Same order as in URL, where [0] is First item in url, [1] 2nd in url etc.
 	pricesList = yahooPriceInfo["quoteResponse"]["result"]
 
@@ -183,23 +187,31 @@ if __name__ == "__main__":
 		os.system('clear')
 
 
-		#print("= Currencies =\n==============")
+		#print("= Currencies =")
 		#GetAndPrintCurrencies(currDict, NeedRefresh)
 
-		print("= Indices =\n===========")
+		print("= Indices =")
 		GetAndPrintSharePrices(shareDictIndexes)
 
-		print("\n= Commodities =\n===============")
+		print("\n= Commodities =")
 		GetAndPrintSharePrices(pmDict)
 
-		print("\n= Multi Asset Portfolio =\n=========================")
+		print("\n= Multi Asset Portfolio =")
 		GetAndPrintSharePrices(shareDictMultiAss)
 
-		print("\n= Growth Portfolio =\n====================")
+		print("\n= Growth Portfolio =")
 		GetAndPrintSharePrices(shareDictGrowth)
 
 
 		print("\nLast Runtime: ", end="")
-		print(time.strftime("%H:%M:%S",time.localtime()))
-		time.sleep(1800)
+		print(time.strftime("%H:%M",time.localtime()))
+		
+		# Check if weekend
+		if datetime.datetime.today().weekday() < 5:
+			# run frequently
+			time.sleep(900)
+		else:
+			# IF pause display refreshes, so just set big time.
+			time.sleep(18000)
+
 
