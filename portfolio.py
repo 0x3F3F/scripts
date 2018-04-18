@@ -31,13 +31,12 @@ IDX_ALL_TIME_HIGH = 4		# Get this from FT market data
 IDX_BUY_PRICE_ALERT  = 5	# Flag when it's reached my buy price
 
 # Other Defintions
-NO_TARGET_PRICE	=  -1
+NO_TARGET_PRICE	 =  -1
+NO_ALL_TIME_HIGH =  -1
 
 def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDictIndexes, pmDict):
 	"""Setup Ordered Dictionaries of shares / rates"""
 
-	currDict['GBPEUR'] = ['GBPEUR']
-	currDict['GBPUSD'] = ['GBPUSD']
 
 	#				Yahoo Tkr	Ticker		FullName							Currency	Dps		AllTimeHigh		TargetPrice
 	shareDictIndexes['^FTSE'] = ['FTSE 100','FTSE 100',							'GBX',		0,		7792,			NO_TARGET_PRICE]
@@ -48,26 +47,29 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	pmDict['CL=F'] =			['Crude',	'Crude',							'USD',		2,		147,			NO_TARGET_PRICE]
 
 	shareDictMultiAss['PNL.L'] = ['PNL',	'Personal Assets',					'GBX',		0,		41590,			NO_TARGET_PRICE]
-	shareDictMultiAss['RCP.L'] = ['RCP',	'RIT Capital Partners',				'GBX',		0,		 2010,			1800]
-	shareDictMultiAss['CGT.L'] = ['CGT',	'Capital Gearing',					'GBX',		0,		 3999,			3800]
-	shareDictMultiAss['RICA.L'] = ['RICA',	'Ruffer',							'GBX',		1,		 242,			NO_TARGET_PRICE]
-	shareDictMultiAss['BTEM.L'] = ['BTEM',	'British Empire',					'GBX',		0,		 755,			600]
-	shareDictMultiAss['CLDN.L'] = ['CLDN',	'Caledonia',						'GBX',		0,		 2907,			2500]
-	shareDictMultiAss['HANA.L'] = ['HANA',	'Hansa Trust',						'GBX',		0,		 1030,			800]
-	shareDictMultiAss['HAST.L'] = ['HAST',	'Henderson Alternative',			'GBX',		0,		 305,			250]
+	shareDictMultiAss['RCP.L'] = ['RCP',	'RIT Capital Partners',				'GBX',		0,		2010,			1800]
+	shareDictMultiAss['CGT.L'] = ['CGT',	'Capital Gearing',					'GBX',		0,		3999,			3800]
+	shareDictMultiAss['RICA.L'] = ['RICA',	'Ruffer',							'GBX',		1,		242,			NO_TARGET_PRICE]
+	shareDictMultiAss['BTEM.L'] = ['BTEM',	'British Empire',					'GBX',		0,		755,			600]
+	shareDictMultiAss['CLDN.L'] = ['CLDN',	'Caledonia',						'GBX',		0,		2907,			2500]
+	shareDictMultiAss['HANA.L'] = ['HANA',	'Hansa Trust',						'GBX',		0,		1030,			800]
+	shareDictMultiAss['HAST.L'] = ['HAST',	'Henderson Alternative',			'GBX',		0,		305,			250]
 
-	shareDictGrowth['SST.L'] =  ['SST',		'Scottish Oriental Smaller Cos',	'GBX',		0,		 1098,			800] 
-	shareDictGrowth['AAS.L'] =  ['AAS',		'Aberdeen Asian Smaller Cos',		'GBX',		0,		 1143,			800] 
-	shareDictGrowth['BRFI.L'] = ['BRFI',	'Blackrock Frontiers',				'GBX',		0,		 169,			130] 
-	shareDictGrowth['AFMC.L'] = ['AFMC',	'Aberdeen Frontiers',				'GBX',		1,		 68.2,			50]
-	shareDictGrowth['ANII.L'] = ['ANII',	'Aberdeen New India',				'GBX',		0,		 470,			400]
-	shareDictGrowth['JII.L'] =  ['JII',		'JP Morgan Indian',					'GBX',		0,		 786,			600]
-	shareDictGrowth['IGC.L'] =  ['IGC',		'India Capital Growth',				'GBX',		0,		 120,			70]
-	shareDictGrowth['HRI.L'] =  ['HRI',		'Herald',							'GBX',		0,		 1230,			800] 
-	shareDictGrowth['BIOG.L'] = ['BIOG',	'Biotech Growth Trust',				'GBX',		0,		 836,			500]
-	shareDictGrowth['PIN.L'] =  ['PIN',		'Pantheon',							'GBX',		0,		 1929,			1200] 
-	shareDictGrowth['HGT.L'] =  ['HGT',		'HG Capital',						'GBX',		0,		 1797,			1200] 
-	shareDictGrowth['IBTS.L'] = ['IBTS',	'iShares US Treas 1-3',				'GBX',		2,		 109,			85]
+	shareDictGrowth['SST.L'] =  ['SST',		'Scottish Oriental Smaller Cos',	'GBX',		0,		1098,			800] 
+	shareDictGrowth['AAS.L'] =  ['AAS',		'Aberdeen Asian Smaller Cos',		'GBX',		0,		1143,			800] 
+	shareDictGrowth['BRFI.L'] = ['BRFI',	'Blackrock Frontiers',				'GBX',		0,		169,			130] 
+	shareDictGrowth['AFMC.L'] = ['AFMC',	'Aberdeen Frontiers',				'GBX',		1,		68.2,			50]
+	shareDictGrowth['ANII.L'] = ['ANII',	'Aberdeen New India',				'GBX',		0,		470,			400]
+	shareDictGrowth['JII.L'] =  ['JII',		'JP Morgan Indian',					'GBX',		0,		786,			600]
+	shareDictGrowth['IGC.L'] =  ['IGC',		'India Capital Growth',				'GBX',		0,		120,			70]
+	shareDictGrowth['HRI.L'] =  ['HRI',		'Herald',							'GBX',		0,		1230,			800] 
+	shareDictGrowth['BIOG.L'] = ['BIOG',	'Biotech Growth Trust',				'GBX',		0,		836,			500]
+	shareDictGrowth['PIN.L'] =  ['PIN',		'Pantheon',							'GBX',		0,		1929,			1200] 
+	shareDictGrowth['HGT.L'] =  ['HGT',		'HG Capital',						'GBX',		0,		1810,			1200] 
+	shareDictGrowth['IBTS.L'] = ['IBTS',	'iShares US Treas 1-3',				'GBX',		2,		109,			85]
+	
+	currDict['GBPEUR=X']	 =	['GBPEUR',	'GBP to EUR XRate',					'',			3,		NO_ALL_TIME_HIGH, NO_TARGET_PRICE]
+	currDict['GBPUSD=X']	=	['GBPUSD',	'GBP to USD XRate',					'',			3,		NO_ALL_TIME_HIGH, NO_TARGET_PRICE]
 
 def GetTabs(Ticker):
 	"""Get the number of tabs depending on length of ticker so stuff lines up"""
@@ -82,6 +84,7 @@ def GetTabs(Ticker):
 
 def PrintSharePriceWithDPS(fPrice, v):
 	"""Print the share price with DPS as specified in shareDict"""
+ 
 
 	# Copy price to string with correct DPs
 	if(v[IDX_PRINT_DPS] == 0):
@@ -90,6 +93,12 @@ def PrintSharePriceWithDPS(fPrice, v):
 		sPrice = "%0.1f"%fPrice
 	elif(v[IDX_PRINT_DPS] == 2):
 		sPrice = "%0.2f"%fPrice
+	elif(v[IDX_PRINT_DPS] == 3):
+		sPrice = "%0.3f"%fPrice
+	elif(v[IDX_PRINT_DPS] == 4):
+		sPrice = "%0.4f"%fPrice
+	elif(v[IDX_PRINT_DPS] == 5):
+		sPrice = "%0.5f"%fPrice
 	else:
 		sPrice = "%0.0f"%fPrice
 
@@ -99,6 +108,10 @@ def PrintSharePriceWithDPS(fPrice, v):
 
 def PrintPercentOffAllTimeHigh(fPrice, v):
 	"""Print the percentage value off of the all time high.  Now in Techni-colour!"""
+
+	# If we want to sko this then just return
+	if v[IDX_ALL_TIME_HIGH] == NO_ALL_TIME_HIGH:
+		return
 
 	# Print amount off of all time high
 	percentOff = (1 - (fPrice/v[IDX_ALL_TIME_HIGH])) * 100
@@ -158,16 +171,6 @@ def GetAndPrintSharePrices(shareDict):
 			CheckAgainstTargetPrice(fPrice, v)
 			
 
-def GetAndPrintCurrencies(currDict, refreshNeeded):
-	"""Fetches the share Currencies from Yahoo!"""
-	for k, v in currDict.items():
-		item = Currency(k)
-		currDict[k][IDX_SHARE_OBJ] = item
-		print("  " + v[IDX_ACTUAL_TICKER] + "\t", end='')
-		if refreshNeeded:
-			v[IDX_SHARE_OBJ].refresh()
-		print(v[IDX_SHARE_OBJ].get_rate())
-
 
 if __name__ == "__main__":
 
@@ -186,11 +189,10 @@ if __name__ == "__main__":
 	while True:
 		os.system('clear')
 
-
 		#print("= Currencies =")
-		#GetAndPrintCurrencies(currDict, NeedRefresh)
+		GetAndPrintSharePrices(currDict)
 
-		print("= Indices =")
+		print("\n= Indices =")
 		GetAndPrintSharePrices(shareDictIndexes)
 
 		print("\n= Commodities =")
