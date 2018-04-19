@@ -161,7 +161,13 @@ def GetAndPrintSharePrices(shareDict):
 
 		# Get the index in the pricesList and get da price
 		index = list(shareDict.keys()).index(k)
-		price = pricesList[index]['regularMarketPrice']
+
+		# At times it appears regularMarketPrice might not be there, giving index out of range error
+		try:
+			price = pricesList[index]['regularMarketPrice']
+		except:
+			print("Issue fetching prices")
+			return
 
 		# Assuming we got a price, print it
 		if price:
