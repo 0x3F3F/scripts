@@ -34,25 +34,28 @@ IDX_BUY_PRICE_ALERT  = 5	# Flag when it's reached my buy price
 NO_TARGET_PRICE	 =  -1
 NO_ALL_TIME_HIGH =  -1
 
+REFRESH_SECONDS = 600
+
+
 def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDictIndexes, pmDict):
 	"""Setup Ordered Dictionaries of shares / rates"""
 
 
 	#				Yahoo Tkr	Ticker		FullName							Currency	Dps		AllTimeHigh		TargetPrice
-	shareDictIndexes['^FTSE'] = ['FTSE 100','FTSE 100',							'GBX',		0,		7792,			NO_TARGET_PRICE]
-	shareDictIndexes['^GSPC'] = ['S&P 500',	'S&P 500',							'USD',		0,		2872,			NO_TARGET_PRICE]
-	shareDictIndexes['EEM']		= ['EM USD',	'iShares Emerging ETF USD',		'USD',		1,		52.08,			NO_TARGET_PRICE] 
-	shareDictIndexes['VFEM.L']	= ['EM GBP',	'Vanguard Emergin ETF GBP',		'GBX',		1,		48.57,			NO_TARGET_PRICE] 
+	shareDictIndexes['^FTSE']	= ['FTSE 100',	'FTSE 100',							'GBX',		0,		7792,			NO_TARGET_PRICE]
+	shareDictIndexes['^GSPC']	= ['S&P 500',	'S&P 500',							'USD',		0,		2900,			NO_TARGET_PRICE]
+	shareDictIndexes['EEM']		= ['EM USD',	'iShares Emerging ETF USD',			'USD',		1,		52.08,			NO_TARGET_PRICE] 
+	shareDictIndexes['VFEM.L']	= ['EM GBP',	'Vanguard Emergin ETF GBP',			'GBX',		1,		48.57,			NO_TARGET_PRICE] 
 
 	pmDict['GC=F'] =			['Gold',	'Gold',								'USD',		0,		1838,			NO_TARGET_PRICE] 
 	pmDict['SI=F'] =			['Silvr',	'Silver',							'USD',		2,		46.4,			NO_TARGET_PRICE]
 	pmDict['CL=F'] =			['Crude',	'Crude',							'USD',		2,		147,			NO_TARGET_PRICE]
 
-	shareDictMultiAss['PNL.L'] = ['PNL',	'Personal Assets',					'GBX',		0,		41590,			NO_TARGET_PRICE]
-	shareDictMultiAss['RCP.L'] = ['RCP',	'RIT Capital Partners',				'GBX',		0,		2050,			1800]
-	shareDictMultiAss['CGT.L'] = ['CGT',	'Capital Gearing',					'GBX',		0,		3999,			3800]
+	shareDictMultiAss['PNL.L'] = ['PNL',	'Personal Assets',					'GBX',		0,		41508,			NO_TARGET_PRICE]
+	shareDictMultiAss['RCP.L'] = ['RCP',	'RIT Capital Partners',				'GBX',		0,		2135,			1800]
+	shareDictMultiAss['CGT.L'] = ['CGT',	'Capital Gearing',					'GBX',		0,		4190,			3800]
 	shareDictMultiAss['RICA.L'] = ['RICA',	'Ruffer',							'GBX',		1,		242,			NO_TARGET_PRICE]
-	shareDictMultiAss['BTEM.L'] = ['BTEM',	'British Empire',					'GBX',		0,		755,			600]
+	shareDictMultiAss['BTEM.L'] = ['BTEM',	'British Empire',					'GBX',		0,		768,			600]
 	shareDictMultiAss['CLDN.L'] = ['CLDN',	'Caledonia',						'GBX',		0,		2907,			2500]
 	shareDictMultiAss['HANA.L'] = ['HANA',	'Hansa Trust',						'GBX',		0,		1030,			800]
 	shareDictMultiAss['HAST.L'] = ['HAST',	'Henderson Alternative',			'GBX',		0,		305,			250]
@@ -61,13 +64,13 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	shareDictGrowth['AAS.L'] =  ['AAS',		'Aberdeen Asian Smaller Cos',		'GBX',		0,		1143,			800] 
 	shareDictGrowth['BRFI.L'] = ['BRFI',	'Blackrock Frontiers',				'GBX',		0,		169,			130] 
 	shareDictGrowth['AFMC.L'] = ['AFMC',	'Aberdeen Frontiers',				'GBX',		1,		68.2,			50]
-	shareDictGrowth['ANII.L'] = ['ANII',	'Aberdeen New India',				'GBX',		0,		470,			400]
+	shareDictGrowth['ANII.L'] = ['ANII',	'Aberdeen New India',				'GBX',		0,		487,			400]
 	shareDictGrowth['JII.L'] =  ['JII',		'JP Morgan Indian',					'GBX',		0,		786,			600]
-	shareDictGrowth['IGC.L'] =  ['IGC',		'India Capital Growth',				'GBX',		0,		120,			70]
-	#shareDictGrowth['HRI.L'] =  ['HRI',		'Herald',							'GBX',		0,		1230,			800] 
+	shareDictGrowth['AJOT.L'] = ['AJOT',	'AVI Japan Opportunities',			'GBX',		0,		102,			80]
+	shareDictGrowth['HRI.L'] =  ['HRI',		'Herald',							'GBX',		0,		1380,			800] 
 	shareDictGrowth['BIOG.L'] = ['BIOG',	'Biotech Growth Trust',				'GBX',		0,		836,			500]
-	#shareDictGrowth['PIN.L'] =  ['PIN',		'Pantheon',							'GBX',		0,		1929,			1200] 
-	#shareDictGrowth['HGT.L'] =  ['HGT',		'HG Capital',						'GBX',		0,		1810,			1200] 
+	shareDictGrowth['PIN.L'] =  ['PIN',		'Pantheon',							'GBX',		0,		2179,			1200] 
+	shareDictGrowth['HGT.L'] =  ['HGT',		'HG Capital',						'GBX',		0,		2030,			1200] 
 	shareDictGrowth['IBTS.L'] = ['IBTS',	'iShares US Treas 1-3',				'GBX',		2,		109,			85]
 	
 	currDict['GBPEUR=X']	 =	['GBPEUR',	'GBP to EUR XRate',					'',			3,		NO_ALL_TIME_HIGH, NO_TARGET_PRICE]
@@ -139,8 +142,6 @@ def CheckAgainstTargetPrice(fPrice, v):
 def GetAndPrintSharePrices(shareDict):
 	"""Fetches the share prices from Yahoo.  Note previous yahoo_finance stopped working and they changed to json"""
 
-	Issue = False
-
 	# Yahoo changed to Now output json like:
 	# https://query1.finance.yahoo.com/v7/finance/quote?symbols=VOD.L,BARC.L
 	yahooQuery = "https://query1.finance.yahoo.com/v7/finance/quote?symbols="
@@ -151,9 +152,8 @@ def GetAndPrintSharePrices(shareDict):
 		yahooJSON = requests.get(yahooQuery)
 		yahooPriceInfo = json.loads(yahooJSON.text)
 	except:
-		print("Fetch Issue")
-		Issue = True
-		return Issue
+		print("Issue fetching prices")
+		return
 
 	# Same order as in URL, where [0] is First item in url, [1] 2nd in url etc.
 	pricesList = yahooPriceInfo["quoteResponse"]["result"]
@@ -171,10 +171,8 @@ def GetAndPrintSharePrices(shareDict):
 		try:
 			price = pricesList[index]['regularMarketPrice']
 		except:
-			print("Fetch Issue")
-			Issue = True
-			WriteJsonToLog(yahooPriceInfo)
-			break
+			print("Issue fetching prices")
+			return
 
 		# Assuming we got a price, print it
 		if price:
@@ -182,30 +180,7 @@ def GetAndPrintSharePrices(shareDict):
 			PrintSharePriceWithDPS(fPrice, v)
 			PrintPercentOffAllTimeHigh(fPrice, v)
 			CheckAgainstTargetPrice(fPrice, v)
-
-	return Issue
-
-
-def WriteJsonToLog(yahooPriceInfo):
-	"""Write Yahoo Json output to file. Feed dodgy at times so will help debug"""
-
-	with open("/tmp/portfolio_py.log", "w") as pLogFile:
-		ppJson = json.dumps(yahooPriceInfo, indent=4, sort_keys=True)
-		pLogFile.write(ppJson)
-
-def	DoPause(fetchIssue):
-	"""Perform pause.  If issue fetching prices then re-run again without pause"""
-
-	if not fetchIssue:
-		# Check if weekend
-		if datetime.datetime.today().weekday() < 5:
-			# run frequently
-			time.sleep(900)
-		else:
-			# IF pause display refreshes, so just set big time.
-			time.sleep(18000)
-	else:
-		time.sleep(30)
+			
 
 
 if __name__ == "__main__":
@@ -226,25 +201,30 @@ if __name__ == "__main__":
 		os.system('clear')
 
 		#print("= Currencies =")
-		fetchIssue = GetAndPrintSharePrices(currDict)
+		GetAndPrintSharePrices(currDict)
 
 		print("\n= Indices =")
-		fetchIssue |= GetAndPrintSharePrices(shareDictIndexes)
+		GetAndPrintSharePrices(shareDictIndexes)
 
 		print("\n= Commodities =")
-		fetchIssue |= GetAndPrintSharePrices(pmDict)
+		GetAndPrintSharePrices(pmDict)
 
 		print("\n= Multi Asset Portfolio =")
-		fetchIssue |= GetAndPrintSharePrices(shareDictMultiAss)
+		GetAndPrintSharePrices(shareDictMultiAss)
 
 		print("\n= Growth Portfolio =")
-		fetchIssue |= GetAndPrintSharePrices(shareDictGrowth)
-		# Yahoo truncating at 10?  do in 2 fetches
+		GetAndPrintSharePrices(shareDictGrowth)
+
 
 		print("\nLast Runtime: ", end="")
 		print(time.strftime("%H:%M",time.localtime()))
 		
-		DoPause(fetchIssue)
-
+		# Check if weekend
+		if datetime.datetime.today().weekday() < 5:
+			# run frequently
+			time.sleep(REFRESH_SECONDS)
+		else:
+			# IF pause display refreshes, so just set big time.
+			time.sleep(18000)
 
 
