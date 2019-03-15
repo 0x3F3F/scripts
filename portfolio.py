@@ -49,7 +49,6 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 
 	pmDict['GC=F'] =			['Gold',	'Gold',								'USD',		0,		1838,			NO_TARGET_PRICE] 
 	pmDict['SI=F'] =			['Silvr',	'Silver',							'USD',		2,		46.4,			NO_TARGET_PRICE]
-	pmDict['CL=F'] =			['Crude',	'Crude',							'USD',		2,		147,			NO_TARGET_PRICE]
 
 	shareDictMultiAss['PNL.L'] = ['PNL',	'Personal Assets',					'GBX',		0,		41508,			NO_TARGET_PRICE]
 	shareDictMultiAss['RCP.L'] = ['RCP',	'RIT Capital Partners',				'GBX',		0,		2135,			1800]
@@ -62,7 +61,6 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	shareDictGrowth['SST.L'] =  ['SST',		'Scottish Oriental Smaller Cos',	'GBX',		0,		1098,			800] 
 	shareDictGrowth['AAS.L'] =  ['AAS',		'Aberdeen Asian Smaller Cos',		'GBX',		0,		1143,			800] 
 	shareDictGrowth['BRFI.L'] = ['BRFI',	'Blackrock Frontiers',				'GBX',		0,		169,			130] 
-	shareDictGrowth['AFMC.L'] = ['AFMC',	'Aberdeen Frontiers',				'GBX',		1,		68.2,			50]
 	shareDictGrowth['JII.L'] =  ['JII',		'JP Morgan Indian',					'GBX',		0,		786,			600]
 	shareDictGrowth['HRI.L'] =  ['HRI',		'Herald',							'GBX',		0,		1380,			800] 
 	shareDictGrowth['BIOG.L'] = ['BIOG',	'Biotech Growth Trust',				'GBX',		0,		836,			500]
@@ -73,7 +71,6 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	shareDictGrowth['IBTL.L'] = ['IBTL',	'iShares US Treas 20+',				'GBX',		2,		412,			330]
 	shareDictGrowth['TP05.L'] = ['TP05',	'iShares US TIPs 0-5',				'GBX',		2,		389,			350]
 	shareDictGrowth['YCA.L'] =  ['YCA',		'Yellowcake',						'GBX',		0,		250,			210] 
-	shareDictGrowth['GCL.L'] =  ['GCL',		'Geiger Counter',					'GBX',		1,		NO_ALL_TIME_HIGH,NO_TARGET_PRICE] 
 	shareDictGrowth['NXE.TO'] =  ['NXE',	'Nexgen Energy',					'CAD',		2,		3.8,			2.39] 
 	shareDictGrowth['URE.TO'] =  ['URE',	'UR-Energy',						'CAD',		2,		2.00,			0.88] 
 	shareDictGrowth['DML.TO'] =  ['DML',	'Denison Mines',					'CAD',		2,		3.75,			0.6] 
@@ -81,6 +78,7 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	shareDictGrowth['LAM.TO'] =  ['LAM',	'Laramide Resources',				'CAD',		3,		2.6,			0.34] 
 	shareDictGrowth['UEX.TO'] =  ['UEX',	'UEX Corporation',					'CAD',		3,		2.2,			0.17] 
 	shareDictGrowth['GXU.V'] =  ['GXU',		'Goviex',							'CAD',		3,		0.38,			0.10] 
+	shareDictGrowth['GJGB.L'] =  ['GJGB',	'VanEc Juniot Gold Miners',			'GBX',		1,		24,				18] 
 
 	currDict['GBPEUR=X']	 =	['GBPEUR',	'GBP to EUR XRate',					'',			4,		NO_ALL_TIME_HIGH, NO_TARGET_PRICE]
 	currDict['GBPUSD=X']	=	['GBPUSD',	'GBP to USD XRate',					'',			4,		NO_ALL_TIME_HIGH, NO_TARGET_PRICE]
