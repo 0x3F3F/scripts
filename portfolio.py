@@ -76,7 +76,7 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	shareDictGrowth['DML.TO'] =  ['DML',	'Denison Mines',					'CAD',		2,		3.75,			0.6] 
 	shareDictGrowth['FCU.TO'] =  ['FCU',	'Fission Uranium Corp',				'CAD',		2,		1.6,			0.54] 
 	shareDictGrowth['LAM.TO'] =  ['LAM',	'Laramide Resources',				'CAD',		3,		2.6,			0.34] 
-	shareDictGrowth['UEX.TO'] =  ['UEX',	'UEX Corporation',					'CAD',		3,		2.2,			0.17] 
+	shareDictGrowth['FSY.TO'] =  ['FSY',	'UEX Corporation',					'CAD',		3,		2.2,			0.17] 
 	shareDictGrowth['GXU.V'] =  ['GXU',		'Goviex',							'CAD',		3,		0.38,			0.10] 
 	shareDictGrowth['GJGB.L'] =  ['GJGB',	'VanEc Juniot Gold Miners',			'GBX',		1,		24,				18] 
 
