@@ -38,7 +38,7 @@ else:
 		with open(htmlFilename, "r") as tempFile:
 			fileContents = tempFile.read()
 		# do replacement
-		pattern = re.compile(r"<hr>\n\n<hr>", re.MULTILINE)
+		pattern = re.compile(r"<hr>\n<hr>", re.MULTILINE)
 		updatedContents = pattern.sub("<hr style=\"page-break-after: always\">", fileContents)
 		# Write back to file
 		with open(htmlFilename, "w") as tempFile:
