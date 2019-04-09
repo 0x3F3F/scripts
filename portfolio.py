@@ -71,6 +71,7 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	shareDictGrowth['IBTL.L'] = ['IBTL',	'iShares US Treas 20+',				'GBX',		2,		412,			330]
 	shareDictGrowth['TP05.L'] = ['TP05',	'iShares US TIPs 0-5',				'GBX',		2,		389,			350]
 	shareDictGrowth['YCA.L'] =  ['YCA',		'Yellowcake',						'GBX',		0,		250,			210] 
+	shareDictGrowth['GCL.L'] =  ['GCL',		'Geiger Counter',					'GBX',		1,		130,			18] 
 	shareDictGrowth['NXE.TO'] =  ['NXE',	'Nexgen Energy',					'CAD',		2,		3.8,			2.39] 
 	shareDictGrowth['CCO.TO'] =  ['CCO',	'Cameco',							'CAD',		2,		55,				12.00] 
 	shareDictGrowth['URE.TO'] =  ['URE',	'UR-Energy',						'CAD',		2,		2.00,			1.10] 
