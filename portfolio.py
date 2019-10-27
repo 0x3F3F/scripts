@@ -53,7 +53,7 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	shareDictMultiAss['PNL.L'] = ['PNL',	'Personal Assets',					'GBX',		0,		41508,			NO_TARGET_PRICE]
 	shareDictMultiAss['RCP.L'] = ['RCP',	'RIT Capital Partners',				'GBX',		0,		2135,			1800]
 	shareDictMultiAss['CGT.L'] = ['CGT',	'Capital Gearing',					'GBX',		0,		4190,			3800]
-	shareDictMultiAss['BTEM.L'] = ['BTEM',	'British Empire',					'GBX',		0,		768,			600]
+	shareDictMultiAss['AGT.L'] = ['AGT',	'AVI Growth',						'GBX',		0,		768,			600]
 	shareDictMultiAss['CLDN.L'] = ['CLDN',	'Caledonia',						'GBX',		0,		2907,			2500]
 	shareDictMultiAss['HAST.L'] = ['HAST',	'Henderson Alternative',			'GBX',		0,		305,			250]
 
@@ -63,11 +63,11 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	shareDictGrowth['JII.L'] =  ['JII',		'JP Morgan Indian',					'GBX',		0,		786,			600]
 	shareDictGrowth['HRI.L'] =  ['HRI',		'Herald',							'GBX',		0,		1380,			800] 
 	shareDictGrowth['BIOG.L'] = ['BIOG',	'Biotech Growth Trust',				'GBX',		0,		836,			500]
-	shareDictGrowth['HGT.L'] =  ['HGT',		'HG Capital',						'GBX',		0,		2030,			1200] 
 	shareDictGrowth['IBTS.L'] = ['IBTS',	'iShares US Treas 1-3',				'GBX',		2,		109,			85]
 	shareDictGrowth['IBTM.L'] = ['IBTM',	'iShares US Treas 7-10',			'GBX',		2,		169,			140]
 	shareDictGrowth['IBTL.L'] = ['IBTL',	'iShares US Treas 20+',				'GBX',		2,		412,			330]
 	shareDictGrowth['TP05.L'] = ['TP05',	'iShares US TIPs 0-5',				'GBX',		2,		389,			350]
+	shareDictGrowth['CYN.L'] =  ['CYN',		'City Natural Rerources',			'GBX',		1,		362,			85] 
 	shareDictGrowth['YCA.L'] =  ['YCA',		'Yellowcake',						'GBX',		0,		250,			210] 
 	shareDictGrowth['GCL.L'] =  ['GCL',		'Geiger Counter',					'GBX',		1,		130,			18] 
 	shareDictGrowth['CCO.TO'] =  ['CCO',	'Cameco',							'CAD',		2,		55,				12.00] 
@@ -83,6 +83,7 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	currDict['GBPEUR=X']	 =	['GBPEUR',	'GBP to EUR XRate',					'',			4,		NO_ALL_TIME_HIGH, NO_TARGET_PRICE]
 	currDict['GBPUSD=X']	=	['GBPUSD',	'GBP to USD XRate',					'',			4,		NO_ALL_TIME_HIGH, NO_TARGET_PRICE]
 	currDict['GBPCAD=X']	=	['GBPCAD',	'GBP to CAD XRate',					'',			4,		NO_ALL_TIME_HIGH, NO_TARGET_PRICE]
+	currDict['BTC-USD']	=		['BITCOIN',	'BITCOIN',							'',			0,		NO_ALL_TIME_HIGH, NO_TARGET_PRICE]
 
 def GetTabs(Ticker):
 	"""Get the number of tabs depending on length of ticker so stuff lines up"""
