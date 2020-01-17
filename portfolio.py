@@ -55,7 +55,6 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	shareDictMultiAss['CGT.L'] = ['CGT',	'Capital Gearing',					'GBX',		0,		4190,			3800]
 	shareDictMultiAss['AGT.L'] = ['AGT',	'AVI Growth',						'GBX',		0,		768,			600]
 	shareDictMultiAss['CLDN.L'] = ['CLDN',	'Caledonia',						'GBX',		0,		2907,			2500]
-	shareDictMultiAss['HAST.L'] = ['HAST',	'Henderson Alternative',			'GBX',		0,		305,			250]
 
 	shareDictGrowth['SST.L'] =  ['SST',		'Scottish Oriental Smaller Cos',	'GBX',		0,		1098,			800] 
 	shareDictGrowth['AAS.L'] =  ['AAS',		'Aberdeen Asian Smaller Cos',		'GBX',		0,		1143,			800] 
@@ -68,7 +67,8 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	shareDictGrowth['IBTL.L'] = ['IBTL',	'iShares US Treas 20+',				'GBX',		2,		412,			330]
 	shareDictGrowth['TP05.L'] = ['TP05',	'iShares US TIPs 0-5',				'GBX',		2,		389,			350]
 	shareDictGrowth['CYN.L'] =  ['CYN',		'City Natural Rerources',			'GBX',		1,		362,			85] 
-	shareDictGrowth['YCA.L'] =  ['YCA',		'Yellowcake',						'GBX',		0,		250,			210] 
+	shareDictGrowth['PFC.L'] =  ['PFC',		'Petrofrac',						'GBP',		1,		1735,			360] 
+	shareDictGrowth['EURN.BR'] =  ['EURN',	'Euronav',							'EUR',		1,		250,			10] 
 	shareDictGrowth['GCL.L'] =  ['GCL',		'Geiger Counter',					'GBX',		1,		130,			18] 
 	shareDictGrowth['CCO.TO'] =  ['CCO',	'Cameco',							'CAD',		2,		55,				12.00] 
 	shareDictGrowth['NXE.TO'] =  ['NXE',	'Nexgen Energy',					'CAD',		2,		3.8,			2.39] 
@@ -77,7 +77,6 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	shareDictGrowth['DML.TO'] =  ['DML',	'Denison Mines',					'CAD',		2,		3.75,			0.6] 
 	shareDictGrowth['FCU.TO'] =  ['FCU',	'Fission Uranium Corp',				'CAD',		2,		1.6,			0.54] 
 	shareDictGrowth['LAM.TO'] =  ['LAM',	'Laramide Resources',				'CAD',		3,		2.6,			0.34] 
-	shareDictGrowth['ERA.PA'] =  ['ERA',	'Eram',								'EUR',		1,		150,			40] 
 	shareDictGrowth['GJGB.L'] =  ['GJGB',	'VanEc Juniot Gold Miners',			'GBX',		1,		24,				18] 
 
 	currDict['GBPEUR=X']	 =	['GBPEUR',	'GBP to EUR XRate',					'',			4,		NO_ALL_TIME_HIGH, NO_TARGET_PRICE]
