@@ -39,6 +39,7 @@ if __name__ == "__main__":
 	###############################################################################################
 	keccak = sha3.keccak_256()
 
+	# Following uses os.random for entropy.  os.random documentation states "suitable foir cryptographic use"
 	priv = SigningKey.generate(curve=SECP256k1)
 	pub = priv.get_verifying_key().to_string()
 
