@@ -12,6 +12,11 @@
 # Basic script to output Portfolio to console
 # Can specify all time high (so as get output detailing how far off it is) and set Target Prices.
 
+
+# Note:  installed yFinanc and can use that as alterntive.  Need to rewrite code and do individual 
+# https://www.geeksforgeeks.org/get-financial-data-from-yahoo-finance-with-python/
+# https://pypi.org/project/yfinance/
+
 import requests
 import collections
 import os
@@ -34,7 +39,9 @@ IDX_BUY_PRICE_ALERT  = 5	# Flag when it's reached my buy price
 NO_TARGET_PRICE	 =  -1
 NO_ALL_TIME_HIGH =  -1
 
-REFRESH_SECONDS = 300
+REFRESH_SECONDS = 200
+YAHOO_RETRIES = 3
+
 
 def clear(): 
 	if os.name == 'nt':	# Windows
@@ -42,57 +49,80 @@ def clear():
 	else:				#Linux
 		os.system('clear') 
 
-def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDictIndexes, pmDict):
+def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDictIndexes, pmDict, shareDictWatchlist):
 	"""Setup Ordered Dictionaries of shares / rates"""
 
 
 	#				Yahoo Tkr	Ticker		FullName							Currency	Dps		AllTimeHigh		TargetPrice
 	shareDictIndexes['^FTSE']	= ['FTSE 100',	'FTSE 100',							'GBX',		0,		7792,			NO_TARGET_PRICE]
-	shareDictIndexes['^GSPC']	= ['S&P 500',	'S&P 500',							'USD',		0,		4128,			NO_TARGET_PRICE]
+	shareDictIndexes['^GSPC']	= ['S&P 500',	'S&P 500',							'USD',		0,		4720,			NO_TARGET_PRICE]
 	#shareDictIndexes['EEM']		= ['EM USD',	'iShares Emerging ETF USD',			'USD',		1,		57.96,			NO_TARGET_PRICE] 
 	#shareDictIndexes['VFEM.L']	= ['EM GBP',	'Vanguard Emergin ETF GBP',			'GBX',		1,		48.57,			NO_TARGET_PRICE] 
 
 	pmDict['GC=F'] =			['Gold',	'Gold',								'USD',		0,		1838,			NO_TARGET_PRICE] 
 	pmDict['SI=F'] =			['Silvr',	'Silver',							'USD',		2,		46.4,			NO_TARGET_PRICE]
 	pmDict['CL=F'] =			['WTI',		'Crude',							'USD',		1,		140,			NO_TARGET_PRICE]
-	pmDict['OR.TO'] =			['OR',		'Osisko',							'CAD',		2,		18.40,			NO_TARGET_PRICE]
-	pmDict['CNQ.TO'] =			['CNQ',		'Suncor',							'CAD',		2,		55.19,			NO_TARGET_PRICE]
+	#pmDict['CNQ.TO'] =			['CNQ',		'Canadian Natural Resources',		'CAD',		2,		67.19,			NO_TARGET_PRICE]
 	#pmDict['PSK.TO'] =			['PSK',		'Prarie Sky Royalty',				'CAD',		2,		40.90,			NO_TARGET_PRICE]
 
-	shareDictMultiAss['CGT.L']  = ['CGT',	'Capital Gearing',					'GBX',		0,		5150,			NO_TARGET_PRICE]
+	#shareDictMultiAss['CGT.L']  = ['CGT',	'Capital Gearing',					'GBX',		0,		5150,			NO_TARGET_PRICE]
 	shareDictMultiAss['PNL.L']  = ['PNL',	'Personal Assets',					'GBX',		0,		51166,			NO_TARGET_PRICE]
 	shareDictMultiAss['RCP.L']  = ['RCP',	'RIT Capital Partners',				'GBX',		0,		2760,			1200]
 	#shareDictMultiAss['HANA.L'] = ['HANA',	'Hansa',							'GBX',		0,		215,			NO_TARGET_PRICE]
-	#shareDictMultiAss['AGT.L'] = ['AGT',	'AVI Growth Trust',					'GBX',		0,		1010,			460]
 
-	shareDictGrowth['SST.L']   =  ['SST',	'Scottish Oriental Smaller Cos',	'GBX',		0,		1292,			600] 
-	shareDictGrowth['0P00012PN5.L']  =  ['LTG',	'Lindsell Train Global D',		'GBX',		0,		304,			NO_TARGET_PRICE ]
+	#shareDictGrowth['SST.L']   =  ['SST',	'Scottish Oriental Smaller Cos',	'GBX',		0,		1292,			800] 
+	#shareDictGrowth['0P00012PN5.L']  =  ['LTG',	'Lindsell Train Global D',		'GBX',		0,		304,			NO_TARGET_PRICE ]
 	shareDictGrowth['BATS.L']  =  ['BATS',	'British American Tobacco',			'GBX',		0,		5530,			NO_TARGET_PRICE ]
-	shareDictGrowth['DB1.DE']  =  ['DB1',	'Deutsche Borse',					'EUR',		1,		172.55,			NO_TARGET_PRICE ]
-	shareDictGrowth['X.TO']    =  ['X',		'TMX',								'CAD',		1,		140.85,			NO_TARGET_PRICE ]
-	shareDictGrowth['AJOT.L']  =  ['AJOT',	'AVI Japan Global Ops',				'GBX',		1,		127,			NO_TARGET_PRICE]
-	shareDictGrowth['SU.TO']   =  ['SU',	'Suncor',							'CAD',		2,		53.5,			NO_TARGET_PRICE]
-	shareDictGrowth['FRU.TO']  =  ['FRU',	'Freehold Royalties',				'CAD',		2,		27.78,			NO_TARGET_PRICE]
-	shareDictGrowth['PSK.TO']  =  ['PSK',	'Prarie Sky',						'CAD',		2,		42.39,			NO_TARGET_PRICE]
-	shareDictGrowth['ALS.TO']  =  ['ALS',	'Altius Minerals',					'CAD',		2,		28.8,			4]
-	shareDictGrowth['APF.L']   =  ['APF',	'Anglo Pacific',					'GBX',		1,		350,			66] 
+	#shareDictGrowth['MO']      =  ['MO',	'Altria',							'USD',		2,		71.42,			NO_TARGET_PRICE ]
+
+	#shareDictGrowth['DB1.DE']  =  ['DB1',	'Deutsche Borse',					'EUR',		1,		172.55,			NO_TARGET_PRICE ]
+	#shareDictGrowth['ENX.PA']  =  ['ENX',	'Euronext',							'EUR',		1,		103.2,			NO_TARGET_PRICE ]
+	#shareDictGrowth['FRU.TO']  =  ['FRU',	'Freehold Royalties',				'CAD',		2,		27.78,			NO_TARGET_PRICE]
+	#shareDictGrowth['PSK.TO']  =  ['PSK',	'Prarie Sky',						'CAD',		2,		42.39,			NO_TARGET_PRICE]
+	#shareDictGrowth['PBR']     =  ['PBR',	'Petrobas Ords',						'USD',		2,		14.92,			NO_TARGET_PRICE]
+	shareDictGrowth['PBR-A']     =  ['PBR-A','Petrobas Perfs',						'USD',		2,		14.92,			NO_TARGET_PRICE]
+	shareDictGrowth['EC']	   =  ['EC',	'EcoPetrol',						'USD',		2,		26.93,			NO_TARGET_PRICE]
+	#shareDictGrowth['WG.L']    =  ['WG',	'Wood Group',						'GBX',		1,		900,			120] 
+	#shareDictGrowth['PFC.L']   =  ['PFC',	'Anglo Pacific',					'GBX',		1,		1668,			100] 
+	shareDictGrowth['ECOR.L']  =  ['ECOR',	'Ecora',							'GBX',		1,		350,			66] 
 	shareDictGrowth['GLEN.L']  =  ['GLEN',	'Glencore',							'GBX',		1,		475,			NO_TARGET_PRICE]
 	shareDictGrowth['ADT1.L']  =  ['ADT',	'ADT',								'GBX',		1,		172,			NO_TARGET_PRICE]
+	#shareDictGrowth['IBZL.L']  =  ['IBZL',	'iShares Brazil',					'GBX',		1,		4004,			NO_TARGET_PRICE]
+	#shareDictGrowth['WPM.L']   =  ['WPM',		'Wheaton Precious',					'GBX',		0,		3345,			NO_TARGET_PRICE]
 	#shareDictGrowth['IMB.L']  = ['IMB'	,	'Imperial Brands',					'GBX',		0,		4005,			NO_TARGET_PRICE ]
-	#shareDictGrowth['CKN.L']  = ['CKN',		'Clarksons',						'GBX',		0,		3420,			NO_TARGET_PRICE ]
-	#shareDictGrowth['LSEG.L']  = ['LSEG',	'LSEG'		,						'GBX',		0,		9900,			NO_TARGET_PRICE ]
 	#shareDictGrowth['ENX.PA']  = ['ENX',	'Euronext',							'EUR',		2,		105.7,			NO_TARGET_PRICE ]
-	#shareDictGrowth['FGT.L']   = ['FGT',	'FGT',								'GBX',		0,		958,			NO_TARGET_PRICE ]
 	#shareDictGrowth['ULVR.L']  = ['ULVR',	'ULVR',								'GBX',		0,		5196,			NO_TARGET_PRICE ]
 	#shareDictGrowth['DGE.L']   = ['DGE',	'DGE',								'GBX',		0,		3503,			NO_TARGET_PRICE ]
 
 
-	currDict['GBPEUR=X']	 =	['GBPEUR',	'GBP to EUR XRate',					'',			4,		NO_ALL_TIME_HIGH, NO_TARGET_PRICE]
+	currDict['GBPEUR=X']	=	['GBPEUR',	'GBP to EUR XRate',					'',			4,		NO_ALL_TIME_HIGH, NO_TARGET_PRICE]
 	currDict['GBPUSD=X']	=	['GBPUSD',	'GBP to USD XRate',					'',			4,		NO_ALL_TIME_HIGH, NO_TARGET_PRICE]
 	currDict['GBPCAD=X']	=	['GBPCAD',	'GBP to CAD XRate',					'',			4,		NO_ALL_TIME_HIGH, NO_TARGET_PRICE]
 	#currDict['GBPAUD=X']	=	['GBPAUD',	'GBP to AUD XRate',					'',			4,		NO_ALL_TIME_HIGH, NO_TARGET_PRICE]
 	#currDict['BTC-USD']		=	['BTC',		'BITCOIN',							'',			0,		NO_ALL_TIME_HIGH, NO_TARGET_PRICE]
 	#currDict['ETH-USD']		=	['ETH',		'ETHER',							'',			0,		NO_ALL_TIME_HIGH, NO_TARGET_PRICE]
+
+	#shareDictWatchlist[['ADM']  =  ['ADM',	'Archer Danlels Midland',			'USD',		2,		96.91,			NO_TARGET_PRICE]
+	#shareDictWatchlist['CNQ.TO']  =  ['CNQ',	'Canadian Natural Resources',		'CAD',		1,		85.2,			NO_TARGET_PRICE]
+	#shareDictWatchlist['AGT.L']   =  ['AGT',	'AVI Growth Trust',					'GBX',		0,		222,			NO_TARGET_PRICE]
+	#shareDictWatchlist['ALS.TO']  =  ['ALS',	'Altius Minerals',					'CAD',		2,		24.1,			4]
+	shareDictWatchlist['VALE']    =  ['VALE',	'Vale',								'USD',		2,		22.81,			NO_TARGET_PRICE]
+	shareDictWatchlist['AFM.V']   =  ['AFM',	'Alphamin',							'CAD',		2,		1.39,			NO_TARGET_PRICE]
+	#shareDictWatchlist['DGE.L']   =  ['DGE',	'Scottish Oriental Smaller Cos',	'GBX',		0,		4036,			800] 
+	shareDictWatchlist['LSEG.L']  =  ['LSEG',	'Metal Tiger',						'GBX',		0,		9990,			NO_TARGET_PRICE] 
+	shareDictWatchlist['X.TO']    =  ['X',		'TMX',								'CAD',		1,		140.85,			NO_TARGET_PRICE ]
+	shareDictWatchlist['ASX.AX']  =  ['ASX',	'ASX',								'CAD',		1,		92.9,			NO_TARGET_PRICE ]
+	shareDictWatchlist['ICE']     =  ['ICE',	'Intercontenental Exchange',		'USD',		2,		138.46,			NO_TARGET_PRICE]
+	#shareDictWatchlist['FGT.L']   =  ['FGT',	'FGT',								'GBX',		0,		958,			NO_TARGET_PRICE ]
+	shareDictWatchlist['CKN.L']   =  ['CKN',	'Clarksons',						'GBX',		0,		4055,			NO_TARGET_PRICE ]
+	#shareDictWatchlist['RIG']     =  ['RIG',	'Transocean',						'USD',		2,		13.95,			NO_TARGET_PRICE]
+	shareDictWatchlist['LIF.TO']  =  ['LIF',	'Labrador Iron Ore',				'CAD',		2,		49.61,			NO_TARGET_PRICE]
+	shareDictWatchlist['NTR.TO']  =  ['NTR',	'Nutrien',							'CAD',		2,		141,			NO_TARGET_PRICE]
+	shareDictWatchlist['MLX.AX']  =  ['MLX',	'Metals X',							'AUD',		2,		0.74,			NO_TARGET_PRICE]
+	shareDictWatchlist['AJOT.L']  =  ['AJOT',	'AVI Japan Global Ops',				'GBX',		1,		127,			NO_TARGET_PRICE]
+	#shareDictWatchlist['CRL']  =  ['CRL',	'Charles River Lans',				'USD',		2,		458.3,			NO_TARGET_PRICE]
+
+
 
 def GetTabs(Ticker):
 	"""Get the number of tabs depending on length of ticker so stuff lines up"""
@@ -162,7 +192,7 @@ def GetAndPrintSharePrices(shareDict):
 
 
 	# Was getting 403 forbidden error.  Putting in USer Agent stopped this
-	headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:77.0) Gecko/20190101 Firefox/77.0'}
+	headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:111.0) Gecko/20100101 Firefox/111.0'}
 
 	# Yahoo changed to Now output json like:
 	# https://query1.finance.yahoo.com/v7/finance/quote?symbols=VOD.L,BARC.L
@@ -170,16 +200,33 @@ def GetAndPrintSharePrices(shareDict):
 	for k,w in shareDict.items():
 		yahooQuery=yahooQuery + "," + k
 
-	try:
-		yahooJSON = requests.get(yahooQuery,headers=headers)
-		#print(yahooJSON)
-		yahooPriceInfo = json.loads(yahooJSON.text)
-	except:
-		print("Issue fetching prices")
-		return
 
-	# Same order as in URL, where [0] is First item in url, [1] 2nd in url etc.
-	pricesList = yahooPriceInfo["quoteResponse"]["result"]
+	for t in range(YAHOO_RETRIES):
+
+		reTry = False
+
+		try:
+			yahooJSON = requests.get(yahooQuery,headers=headers)
+			yahooPriceInfo = json.loads(yahooJSON.text)
+		except:
+			reTry = True
+
+		# Same order as in URL, where [0] is First item in url, [1] 2nd in url etc.
+		try:
+			pricesList = yahooPriceInfo["quoteResponse"]["result"]
+		except:
+			# Sometimes the returned array isn't populated.  Print it so can investegate
+			reTry = True
+			#print(yahooPriceInfo)
+
+		if reTry == False:
+			break	# Got it
+		elif t >= YAHOO_RETRIES:
+			print("Issue fetching prices")
+			return
+		else:
+			WaitaBitForYahoo()
+
 
 	# For each item, print the price
 	for k, v in shareDict.items():
@@ -205,6 +252,11 @@ def GetAndPrintSharePrices(shareDict):
 			CheckAgainstTargetPrice(fPrice, v)
 			
 
+def WaitaBitForYahoo():
+	"""Yahoo sporadically returning errors, think throttling.  Add a wait."""
+	time.sleep(1)
+
+
 
 if __name__ == "__main__":
 
@@ -216,8 +268,9 @@ if __name__ == "__main__":
 	shareDictMultiAss = collections.OrderedDict() 
 	shareDictGrowth = collections.OrderedDict() 
 	shareDictIndexes = collections.OrderedDict()
+	shareDictWatchlist = collections.OrderedDict()
 	pmDict = collections.OrderedDict()
-	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDictIndexes, pmDict)
+	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDictIndexes, pmDict, shareDictWatchlist)
 
 	# This runs every half hour or so, just leaving it in a terminal
 	while True:
@@ -238,6 +291,9 @@ if __name__ == "__main__":
 		print("\n= Growth Portfolio =")
 		GetAndPrintSharePrices(shareDictGrowth)
 
+		print("\n= Watchlist =")
+		GetAndPrintSharePrices(shareDictWatchlist)
+
 
 		print("\nLast Runtime: ", end="")
 		print(time.strftime("%H:%M",time.localtime()))
@@ -248,7 +304,7 @@ if __name__ == "__main__":
 			time.sleep(REFRESH_SECONDS)
 		else:
 			# IF pause display refreshes, so just set big time.
-			time.sleep(18000)
+			time.sleep(3600)
 
 
 
