@@ -21,6 +21,7 @@ import requests
 import collections
 import os
 import time, datetime
+import yfinance as YahooFinance
 
 try:
 	import json
@@ -187,49 +188,33 @@ def CheckAgainstTargetPrice(fPrice, v):
 
 
 
-def GetAndPrintSharePrices(shareDict):
+def GetAndPrintSharePrices(shareDict, inputIndexName):
 	"""Fetches the share prices from Yahoo.  Note previous yahoo_finance stopped working and they changed to json"""
 
 
 	# Was getting 403 forbidden error.  Putting in USer Agent stopped this
-	headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:111.0) Gecko/20100101 Firefox/111.0'}
+	#headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:111.0) Gecko/20100101 Firefox/111.0'}
 
 	# Yahoo changed to Now output json like:
-	# https://query1.finance.yahoo.com/v7/finance/quote?symbols=VOD.L,BARC.L
-	yahooQuery = "https://query1.finance.yahoo.com/v7/finance/quote?symbols="
-	for k,w in shareDict.items():
-		yahooQuery=yahooQuery + "," + k
-
-
-	for t in range(YAHOO_RETRIES):
-
-		reTry = False
-
-		try:
-			yahooJSON = requests.get(yahooQuery,headers=headers)
-			yahooPriceInfo = json.loads(yahooJSON.text)
-		except:
-			reTry = True
-
-		# Same order as in URL, where [0] is First item in url, [1] 2nd in url etc.
-		try:
-			pricesList = yahooPriceInfo["quoteResponse"]["result"]
-		except:
-			# Sometimes the returned array isn't populated.  Print it so can investegate
-			reTry = True
-			#print(yahooPriceInfo)
-
-		if reTry == False:
-			break	# Got it
-		elif t >= YAHOO_RETRIES:
-			print("Issue fetching prices")
-			return
-		else:
-			WaitaBitForYahoo()
-
+	#yahooQuery = "https://query1.finance.yahoo.com/v7/finance/quote?symbols="
+	#yahooQuery = ""
 
 	# For each item, print the price
 	for k, v in shareDict.items():
+
+		price=""
+		yahooData = YahooFinance.Ticker(k)
+
+		if k=="^FTSE": indexName = 'open'
+		elif k=="AJOT.L": indexName = 'bid'
+		else : indexName = inputIndexName
+
+		try:
+			price = yahooData.info[indexName]
+		except:
+			print("issue fetching price")
+			print(yahooData.info)
+			exit
 
 		tabs = GetTabs(v[IDX_ACTUAL_TICKER])
 		print("  " + v[IDX_ACTUAL_TICKER].ljust(10) , end='')
@@ -237,20 +222,14 @@ def GetAndPrintSharePrices(shareDict):
 		# Get the index in the pricesList and get da price
 		index = list(shareDict.keys()).index(k)
 
-		# At times it appears regularMarketPrice might not be there, giving index out of range error
-		try:
-			price = pricesList[index]['regularMarketPrice']
-		except:
-			print("Issue fetching prices")
-			return
-
 		# Assuming we got a price, print it
 		if price:
 			fPrice = float(price)
 			PrintSharePriceWithDPS(fPrice, v)
 			PrintPercentOffAllTimeHigh(fPrice, v)
 			CheckAgainstTargetPrice(fPrice, v)
-			
+
+
 
 def WaitaBitForYahoo():
 	"""Yahoo sporadically returning errors, think throttling.  Add a wait."""
@@ -276,24 +255,25 @@ if __name__ == "__main__":
 	while True:
 		clear()
 
-		#print("= Currencies =")
-		GetAndPrintSharePrices(currDict)
+		print("= Currencies =")
+		GetAndPrintSharePrices(currDict, "bid")
 
 		print("\n= Indices =")
-		GetAndPrintSharePrices(shareDictIndexes)
+		GetAndPrintSharePrices(shareDictIndexes, 'bid')
 
 		print("\n= Commodities =")
-		GetAndPrintSharePrices(pmDict)
+		GetAndPrintSharePrices(pmDict, 'bid')
 
 		print("\n= Multi Asset Portfolio =")
-		GetAndPrintSharePrices(shareDictMultiAss)
+		GetAndPrintSharePrices(shareDictMultiAss, 'currentPrice')
 
 		print("\n= Growth Portfolio =")
-		GetAndPrintSharePrices(shareDictGrowth)
+		GetAndPrintSharePrices(shareDictGrowth, 'currentPrice')
 
 		print("\n= Watchlist =")
-		GetAndPrintSharePrices(shareDictWatchlist)
+		GetAndPrintSharePrices(shareDictWatchlist,'currentPrice')
 
+		exit
 
 		print("\nLast Runtime: ", end="")
 		print(time.strftime("%H:%M",time.localtime()))
