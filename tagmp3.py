@@ -74,7 +74,7 @@ if __name__ == "__main__":
 	for currFile in files:
 
 		# Trim first 4 characters "01. " and last 3 ".mp3"
-		trimmedName = currFile[4:-4] 
+		trimmedName = currFile[:-4] 
 		#command = r'/usr/bin/eyeD3 -a ' + r'"' + artist + '"' + r' -A ' + r'"' + album + '"' + r' -t ' + r'"' + trimmedName + r'"'  
 		#print(command)
 		#os.system(command)

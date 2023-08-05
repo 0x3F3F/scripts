@@ -21,7 +21,6 @@ import requests
 import collections
 import os
 import time, datetime
-import yfinance as YahooFinance
 
 try:
 	import json
@@ -35,13 +34,12 @@ IDX_CURRENCY = 2
 IDX_PRINT_DPS = 3
 IDX_ALL_TIME_HIGH = 4		# Get this from FT market data
 IDX_BUY_PRICE_ALERT  = 5	# Flag when it's reached my buy price
-IDX_LAST_READ_PRICE = 6
 
 # Other Defintions
 NO_TARGET_PRICE	 =  -1
 NO_ALL_TIME_HIGH =  -1
 
-REFRESH_SECONDS = 180
+REFRESH_SECONDS = 200
 YAHOO_RETRIES = 3
 
 
@@ -69,29 +67,32 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 
 	#shareDictMultiAss['CGT.L']  = ['CGT',	'Capital Gearing',					'GBX',		0,		5150,			NO_TARGET_PRICE]
 	shareDictMultiAss['PNL.L']  = ['PNL',	'Personal Assets',					'GBX',		0,		51166,			NO_TARGET_PRICE]
-	#shareDictMultiAss['RCP.L']  = ['RCP',	'RIT Capital Partners',				'GBX',		0,		2760,			1200]
+	shareDictMultiAss['RCP.L']  = ['RCP',	'RIT Capital Partners',				'GBX',		0,		2760,			1200]
 	#shareDictMultiAss['HANA.L'] = ['HANA',	'Hansa',							'GBX',		0,		215,			NO_TARGET_PRICE]
 
 	#shareDictGrowth['SST.L']   =  ['SST',	'Scottish Oriental Smaller Cos',	'GBX',		0,		1292,			800] 
 	#shareDictGrowth['0P00012PN5.L']  =  ['LTG',	'Lindsell Train Global D',		'GBX',		0,		304,			NO_TARGET_PRICE ]
 	shareDictGrowth['BATS.L']  =  ['BATS',	'British American Tobacco',			'GBX',		0,		5530,			NO_TARGET_PRICE ]
-	shareDictGrowth['ENX.PA']  =  ['ENX',	'Euronext',							'EUR',		1,		98.3,			NO_TARGET_PRICE ]
-	shareDictGrowth['CME']     =  ['CME',	'Intercontenental Exchange',		'USD',		2,		238,			NO_TARGET_PRICE]
 	#shareDictGrowth['MO']      =  ['MO',	'Altria',							'USD',		2,		71.42,			NO_TARGET_PRICE ]
 
 	#shareDictGrowth['DB1.DE']  =  ['DB1',	'Deutsche Borse',					'EUR',		1,		172.55,			NO_TARGET_PRICE ]
+	#shareDictGrowth['ENX.PA']  =  ['ENX',	'Euronext',							'EUR',		1,		103.2,			NO_TARGET_PRICE ]
 	#shareDictGrowth['FRU.TO']  =  ['FRU',	'Freehold Royalties',				'CAD',		2,		27.78,			NO_TARGET_PRICE]
 	#shareDictGrowth['PSK.TO']  =  ['PSK',	'Prarie Sky',						'CAD',		2,		42.39,			NO_TARGET_PRICE]
+	#shareDictGrowth['PBR']     =  ['PBR',	'Petrobas Ords',						'USD',		2,		14.92,			NO_TARGET_PRICE]
 	shareDictGrowth['PBR-A']     =  ['PBR-A','Petrobas Perfs',						'USD',		2,		14.92,			NO_TARGET_PRICE]
 	shareDictGrowth['EC']	   =  ['EC',	'EcoPetrol',						'USD',		2,		26.93,			NO_TARGET_PRICE]
 	#shareDictGrowth['WG.L']    =  ['WG',	'Wood Group',						'GBX',		1,		900,			120] 
-	shareDictGrowth['ECOR.L']  =  ['ECOR',	'Ecora',							'GBX',		1,		350,			NO_TARGET_PRICE] 
+	#shareDictGrowth['PFC.L']   =  ['PFC',	'Anglo Pacific',					'GBX',		1,		1668,			100] 
+	shareDictGrowth['ECOR.L']  =  ['ECOR',	'Ecora',							'GBX',		1,		350,			66] 
 	shareDictGrowth['GLEN.L']  =  ['GLEN',	'Glencore',							'GBX',		1,		475,			NO_TARGET_PRICE]
-	shareDictGrowth['VALE']    =  ['VALE',	'Vale',								'USD',		2,		22.81,			NO_TARGET_PRICE]
-	#shareDictGrowth['MLX.AX']  =  ['MLX',	'Metals X',							'AUD',		2,		0.74,			NO_TARGET_PRICE]
 	shareDictGrowth['ADT1.L']  =  ['ADT',	'ADT',								'GBX',		1,		172,			NO_TARGET_PRICE]
 	#shareDictGrowth['IBZL.L']  =  ['IBZL',	'iShares Brazil',					'GBX',		1,		4004,			NO_TARGET_PRICE]
 	#shareDictGrowth['WPM.L']   =  ['WPM',		'Wheaton Precious',					'GBX',		0,		3345,			NO_TARGET_PRICE]
+	#shareDictGrowth['IMB.L']  = ['IMB'	,	'Imperial Brands',					'GBX',		0,		4005,			NO_TARGET_PRICE ]
+	#shareDictGrowth['ENX.PA']  = ['ENX',	'Euronext',							'EUR',		2,		105.7,			NO_TARGET_PRICE ]
+	#shareDictGrowth['ULVR.L']  = ['ULVR',	'ULVR',								'GBX',		0,		5196,			NO_TARGET_PRICE ]
+	#shareDictGrowth['DGE.L']   = ['DGE',	'DGE',								'GBX',		0,		3503,			NO_TARGET_PRICE ]
 
 
 	currDict['GBPEUR=X']	=	['GBPEUR',	'GBP to EUR XRate',					'',			4,		NO_ALL_TIME_HIGH, NO_TARGET_PRICE]
@@ -105,20 +106,20 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	#shareDictWatchlist['CNQ.TO']  =  ['CNQ',	'Canadian Natural Resources',		'CAD',		1,		85.2,			NO_TARGET_PRICE]
 	#shareDictWatchlist['AGT.L']   =  ['AGT',	'AVI Growth Trust',					'GBX',		0,		222,			NO_TARGET_PRICE]
 	#shareDictWatchlist['ALS.TO']  =  ['ALS',	'Altius Minerals',					'CAD',		2,		24.1,			4]
-	#shareDictWatchlist['AFM.V']   =  ['AFM',	'Alphamin',							'CAD',		2,		1.39,			NO_TARGET_PRICE]
-	#shareDictWatchlist['LSEG.L']  =  ['LSEG',	'Metal Tiger',						'GBX',		0,		9990,			NO_TARGET_PRICE] 
-	#shareDictWatchlist['X.TO']    =  ['X',		'TMX',								'CAD',		1,		140.85,			NO_TARGET_PRICE ]
-	#shareDictWatchlist['ASX.AX']  =  ['ASX',	'ASX',								'AUD',		1,		92.9,			NO_TARGET_PRICE ]
-	#shareDictWatchlist['ICE']     =  ['ICE',	'Intercontenental Exchange',		'USD',		2,		138.46,			NO_TARGET_PRICE]
+	shareDictWatchlist['VALE']    =  ['VALE',	'Vale',								'USD',		2,		22.81,			NO_TARGET_PRICE]
+	shareDictWatchlist['AFM.V']   =  ['AFM',	'Alphamin',							'CAD',		2,		1.39,			NO_TARGET_PRICE]
+	#shareDictWatchlist['DGE.L']   =  ['DGE',	'Scottish Oriental Smaller Cos',	'GBX',		0,		4036,			800] 
+	shareDictWatchlist['LSEG.L']  =  ['LSEG',	'Metal Tiger',						'GBX',		0,		9990,			NO_TARGET_PRICE] 
+	shareDictWatchlist['X.TO']    =  ['X',		'TMX',								'CAD',		1,		140.85,			NO_TARGET_PRICE ]
+	shareDictWatchlist['ASX.AX']  =  ['ASX',	'ASX',								'CAD',		1,		92.9,			NO_TARGET_PRICE ]
+	shareDictWatchlist['ICE']     =  ['ICE',	'Intercontenental Exchange',		'USD',		2,		138.46,			NO_TARGET_PRICE]
 	#shareDictWatchlist['FGT.L']   =  ['FGT',	'FGT',								'GBX',		0,		958,			NO_TARGET_PRICE ]
 	shareDictWatchlist['CKN.L']   =  ['CKN',	'Clarksons',						'GBX',		0,		4055,			NO_TARGET_PRICE ]
 	#shareDictWatchlist['RIG']     =  ['RIG',	'Transocean',						'USD',		2,		13.95,			NO_TARGET_PRICE]
-	#shareDictWatchlist['LIF.TO']  =  ['LIF',	'Labrador Iron Ore',				'CAD',		2,		49.61,			NO_TARGET_PRICE]
-	shareDictWatchlist['YCA.L']   =  ['YCA',	'Anglo Pacific',					'GBX',		0,		444,			100] 
-	#shareDictWatchlist['NTR.TO']  =  ['NTR.T',	'Nutrien',							'CAD',		2,		141,			NO_TARGET_PRICE]
-	#shareDictWatchlist['NTR']     =  ['NTR',	'Nutrien',							'USD',		2,		104,			NO_TARGET_PRICE]
+	shareDictWatchlist['LIF.TO']  =  ['LIF',	'Labrador Iron Ore',				'CAD',		2,		49.61,			NO_TARGET_PRICE]
+	shareDictWatchlist['NTR.TO']  =  ['NTR',	'Nutrien',							'CAD',		2,		141,			NO_TARGET_PRICE]
+	shareDictWatchlist['MLX.AX']  =  ['MLX',	'Metals X',							'AUD',		2,		0.74,			NO_TARGET_PRICE]
 	shareDictWatchlist['AJOT.L']  =  ['AJOT',	'AVI Japan Global Ops',				'GBX',		1,		127,			NO_TARGET_PRICE]
-	shareDictWatchlist['DGE.L']   =  ['DGE',	'Scottish Oriental Smaller Cos',	'GBX',		0,		4036,			3000] 
 	#shareDictWatchlist['CRL']  =  ['CRL',	'Charles River Lans',				'USD',		2,		458.3,			NO_TARGET_PRICE]
 
 
@@ -186,63 +187,62 @@ def CheckAgainstTargetPrice(fPrice, v):
 
 
 
-def GetAndPrintSharePrices(shareDict, inputIndexName):
+def GetAndPrintSharePrices(shareDict):
 	"""Fetches the share prices from Yahoo.  Note previous yahoo_finance stopped working and they changed to json"""
 
 
 	# Was getting 403 forbidden error.  Putting in USer Agent stopped this
-	#headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:111.0) Gecko/20100101 Firefox/111.0'}
+	headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:111.0) Gecko/20100101 Firefox/111.0'}
 
 	# Yahoo changed to Now output json like:
-	#yahooQuery = "https://query1.finance.yahoo.com/v7/finance/quote?symbols="
-	#yahooQuery = ""
+	# https://query1.finance.yahoo.com/v7/finance/quote?symbols=VOD.L,BARC.L
+	yahooQuery = "https://query1.finance.yahoo.com/v7/finance/quote?symbols="
+	for k,w in shareDict.items():
+		yahooQuery=yahooQuery + "," + k
+
+
+	for t in range(YAHOO_RETRIES):
+
+		reTry = False
+
+		try:
+			yahooJSON = requests.get(yahooQuery,headers=headers)
+			yahooPriceInfo = json.loads(yahooJSON.text)
+		except:
+			reTry = True
+
+		# Same order as in URL, where [0] is First item in url, [1] 2nd in url etc.
+		try:
+			pricesList = yahooPriceInfo["quoteResponse"]["result"]
+		except:
+			# Sometimes the returned array isn't populated.  Print it so can investegate
+			reTry = True
+			#print(yahooPriceInfo)
+
+		if reTry == False:
+			break	# Got it
+		elif t >= YAHOO_RETRIES:
+			print("Issue fetching prices")
+			return
+		else:
+			WaitaBitForYahoo()
+
 
 	# For each item, print the price
 	for k, v in shareDict.items():
 
-		price=""
-		yahooData = YahooFinance.Ticker(k)
-
-		#if k=="^FTSE": indexName = 'open'
-		#elif k=="AJOT.L": indexName = 'bid'
-		#else : indexName = inputIndexName
-
-		try:
-			# price = yahooData.info[indexName]
-			# https://stackoverflow.com/questions/61104362/how-to-get-actual-stock-prices-with-yfinance
-			# Someties its currentPrice, regularMarketprice or neither
-			if 'currentPrice' in yahooData.info:
-				price = yahooData.info['currentPrice']
-			elif 'regularMarketPrice' in yahooData.info:
-				price = yahooData.info['regularMarketPrice']
-			else:
-				# Use history
-				todayData = yahooData.history(period='1d')
-				price = todayData['Close'][0]
-				# Apparently  todayData = yahooData.history(interval='1m',period='1d') for real time, but will fetch huge amount of data.
-
-			#append last read price in case fail to read next time.
-			if len(v)==6:
-				shareDict[k].append(price)
-			else:
-				v[IDX_LAST_READ_PRICE] = price 
-
-			print("  ", end='')
-	
-		except:
-			if len(v)==7:
-				# Use the cached value
-				price = v[IDX_LAST_READ_PRICE]
-				print(" \033[0;91mc\033[00m", end='' ) # Print red 'c' to show cached
-			else:
-				print("issue fetching price")
-				print(yahooData.info)
-
-		
-		print(v[IDX_ACTUAL_TICKER].ljust(10) , end='')
+		tabs = GetTabs(v[IDX_ACTUAL_TICKER])
+		print("  " + v[IDX_ACTUAL_TICKER].ljust(10) , end='')
 
 		# Get the index in the pricesList and get da price
 		index = list(shareDict.keys()).index(k)
+
+		# At times it appears regularMarketPrice might not be there, giving index out of range error
+		try:
+			price = pricesList[index]['regularMarketPrice']
+		except:
+			print("Issue fetching prices")
+			return
 
 		# Assuming we got a price, print it
 		if price:
@@ -250,8 +250,7 @@ def GetAndPrintSharePrices(shareDict, inputIndexName):
 			PrintSharePriceWithDPS(fPrice, v)
 			PrintPercentOffAllTimeHigh(fPrice, v)
 			CheckAgainstTargetPrice(fPrice, v)
-
-
+			
 
 def WaitaBitForYahoo():
 	"""Yahoo sporadically returning errors, think throttling.  Add a wait."""
@@ -271,50 +270,38 @@ if __name__ == "__main__":
 	shareDictIndexes = collections.OrderedDict()
 	shareDictWatchlist = collections.OrderedDict()
 	pmDict = collections.OrderedDict()
-
-	# Failure to reads causing issues, cache last read and output that.
-	currDict_cached = collections.OrderedDict() 
-	shareDictMultiAss_cached = collections.OrderedDict() 
-	shareDictGrowth_cached = collections.OrderedDict() 
-	shareDictIndexes_cached = collections.OrderedDict()
-	shareDictWatchlist_cached = collections.OrderedDict()
-	pmDict_cached = collections.OrderedDict()
-
-
 	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDictIndexes, pmDict, shareDictWatchlist)
 
 	# This runs every half hour or so, just leaving it in a terminal
 	while True:
 		clear()
 
-		print("= Currencies =")
-		GetAndPrintSharePrices(currDict, "bid")
+		#print("= Currencies =")
+		#GetAndPrintSharePrices(currDict)
 
-		print("\n= Indices =")
-		GetAndPrintSharePrices(shareDictIndexes, 'bid')
+		#print("\n= Indices =")
+		#GetAndPrintSharePrices(shareDictIndexes)
 
-		print("\n= Commodities =")
-		GetAndPrintSharePrices(pmDict, 'bid')
+		#print("\n= Commodities =")
+		#GetAndPrintSharePrices(pmDict)
 
 		print("\n= Multi Asset Portfolio =")
-		GetAndPrintSharePrices(shareDictMultiAss, 'currentPrice')
+		GetAndPrintSharePrices(shareDictMultiAss)
 
-		print("\n= Growth Portfolio =")
-		GetAndPrintSharePrices(shareDictGrowth, 'currentPrice')
+		#print("\n= Growth Portfolio =")
+		#GetAndPrintSharePrices(shareDictGrowth)
 
-		print("\n= Watchlist =")
-		GetAndPrintSharePrices(shareDictWatchlist,'currentPrice')
+		#print("\n= Watchlist =")
+		#GetAndPrintSharePrices(shareDictWatchlist)
+
 
 		print("\nLast Runtime: ", end="")
 		print(time.strftime("%H:%M",time.localtime()))
 		
-		# Save querying yahoo unnecessarily.  only once per hour outside market hours
+		# Check if weekend
 		if datetime.datetime.today().weekday() < 5:
-			# If market hours then run frequently
+			# run frequently
 			time.sleep(REFRESH_SECONDS)
 		else:
-			# WEEKEND.  IF pause display refreshes, so just set big time.
+			# IF pause display refreshes, so just set big time.
 			time.sleep(3600)
-
-
-
