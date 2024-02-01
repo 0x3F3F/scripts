@@ -71,27 +71,25 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 
 	#shareDictMultiAss['CGT.L']  = ['CGT',	'Capital Gearing',					'GBX',		0,		5150,			NO_TARGET_PRICE]
 	#shareDictMultiAss['PNL.L']  = ['PNL',	'Personal Assets',					'GBX',		0,		51166,			NO_TARGET_PRICE]
-	shareDictMultiAss['RCP.L']  = ['RCP',	'RIT Capital Partners',				'GBX',		0,		2760,			1200]
+	#shareDictMultiAss['RCP.L']  = ['RCP',	'RIT Capital Partners',				'GBX',		0,		2760,			1200]
 	#shareDictMultiAss['HANA.L'] = ['HANA',	'Hansa',							'GBX',		0,		215,			NO_TARGET_PRICE]
 
 	#shareDictGrowth['SST.L']   =  ['SST',	'Scottish Oriental Smaller Cos',	'GBX',		0,		1292,			800] 
 	#shareDictGrowth['0P00012PN5.L']  =  ['LTG',	'Lindsell Train Global D',		'GBX',		0,		304,			NO_TARGET_PRICE ]
 	shareDictGrowth['BATS.L']  =  ['BATS',	'British American Tobacco',			'GBX',		0,		5530,			NO_TARGET_PRICE ]
-	#shareDictGrowth['ENX.PA']  =  ['ENX',	'Euronext',							'EUR',		1,		98.3,			NO_TARGET_PRICE ]
-	#shareDictGrowth['CME']     =  ['CME',	'Intercontenental Exchange',		'USD',		2,		238,			NO_TARGET_PRICE]
 	#shareDictGrowth['MO']      =  ['MO',	'Altria',							'USD',		2,		71.42,			NO_TARGET_PRICE ]
 
 	#shareDictGrowth['DB1.DE']  =  ['DB1',	'Deutsche Borse',					'EUR',		1,		172.55,			NO_TARGET_PRICE ]
-	#shareDictGrowth['FRU.TO']  =  ['FRU',	'Freehold Royalties',				'CAD',		2,		27.78,			NO_TARGET_PRICE]
-	#shareDictGrowth['PSK.TO']  =  ['PSK',	'Prarie Sky',						'CAD',		2,		42.39,			NO_TARGET_PRICE]
-	shareDictGrowth['PBR-A']     =  ['PBR-A','Petrobas Perfs',						'USD',		2,		14.92,			NO_TARGET_PRICE]
-	shareDictGrowth['EC']	   =  ['EC',	'EcoPetrol',						'USD',		2,		26.93,			NO_TARGET_PRICE]
+	#shareDictGrowth['PBR-A']     =  ['PBR-A','Petrobas Perfs',						'USD',		2,		14.92,			NO_TARGET_PRICE]
+	#shareDictGrowth['EC']	   =  ['EC',	'EcoPetrol',						'USD',		2,		26.93,			NO_TARGET_PRICE]
 	#shareDictGrowth['WG.L']    =  ['WG',	'Wood Group',						'GBX',		1,		900,			120] 
 	shareDictGrowth['ECOR.L']  =  ['ECOR',	'Ecora',							'GBX',		1,		350,			NO_TARGET_PRICE] 
+	shareDictGrowth['ALS.TO']  =  ['ALS',	'Altius Minerals',					'CAD',		2,		24.1,			4]
 	shareDictGrowth['VALE']    =  ['VALE',	'Vale',								'USD',		2,		22.81,			NO_TARGET_PRICE]
 	shareDictGrowth['GLEN.L']  =  ['GLEN',	'Glencore',							'GBX',		1,		475,			NO_TARGET_PRICE]
 	#shareDictGrowth['MLX.AX']  =  ['MLX',	'Metals X',							'AUD',		2,		0.74,			NO_TARGET_PRICE]
-	shareDictGrowth['ADT1.L']  =  ['ADT',	'ADT',								'GBX',		1,		172,			NO_TARGET_PRICE]
+	shareDictGrowth['ADT1.L']  =  ['ADT',	'ADT',								'GBX',		1,		218,			NO_TARGET_PRICE]
+	shareDictGrowth['FNV']     =  ['FNV',	'Franco Nevada',					'USD',		2,		158.95,			NO_TARGET_PRICE]
 	shareDictGrowth['WHC.AX']  =  ['WHC',	'WHC',								'AUD',		2,		10.52,			NO_TARGET_PRICE]
 	#shareDictGrowth['IBZL.L']  =  ['IBZL',	'iShares Brazil',					'GBX',		1,		4004,			NO_TARGET_PRICE]
 	#shareDictGrowth['WPM.L']   =  ['WPM',		'Wheaton Precious',					'GBX',		0,		3345,			NO_TARGET_PRICE]
@@ -107,21 +105,26 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	#shareDictWatchlist[['ADM']  =  ['ADM',	'Archer Danlels Midland',			'USD',		2,		96.91,			NO_TARGET_PRICE]
 	#shareDictWatchlist['CNQ.TO']  =  ['CNQ',	'Canadian Natural Resources',		'CAD',		1,		85.2,			NO_TARGET_PRICE]
 	#shareDictWatchlist['AGT.L']   =  ['AGT',	'AVI Growth Trust',					'GBX',		0,		222,			NO_TARGET_PRICE]
-	#shareDictWatchlist['ALS.TO']  =  ['ALS',	'Altius Minerals',					'CAD',		2,		24.1,			4]
 	#shareDictWatchlist['AFM.V']   =  ['AFM',	'Alphamin',							'CAD',		2,		1.39,			NO_TARGET_PRICE]
 	#shareDictWatchlist['LSEG.L']  =  ['LSEG',	'Metal Tiger',						'GBX',		0,		9990,			NO_TARGET_PRICE] 
 	#shareDictWatchlist['X.TO']    =  ['X',		'TMX',								'CAD',		1,		140.85,			NO_TARGET_PRICE ]
 	#shareDictWatchlist['ASX.AX']  =  ['ASX',	'ASX',								'AUD',		1,		92.9,			NO_TARGET_PRICE ]
 	#shareDictWatchlist['ICE']     =  ['ICE',	'Intercontenental Exchange',		'USD',		2,		138.46,			NO_TARGET_PRICE]
 	#shareDictWatchlist['FGT.L']   =  ['FGT',	'FGT',								'GBX',		0,		958,			NO_TARGET_PRICE ]
-	shareDictWatchlist['CKN.L']   =  ['CKN',	'Clarksons',						'GBX',		0,		4055,			NO_TARGET_PRICE ]
+	#shareDictWatchlist['CKN.L']   =  ['CKN',	'Clarksons',						'GBX',		0,		4055,			NO_TARGET_PRICE ]
 	shareDictWatchlist['AJOT.L']  =  ['AJOT',	'AVI Japan Global Ops',				'GBX',		1,		127,			NO_TARGET_PRICE]
-	#shareDictWatchlist['RIG']     =  ['RIG',	'Transocean',						'USD',		2,		13.95,			NO_TARGET_PRICE]
-	#shareDictWatchlist['LIF.TO']  =  ['LIF',	'Labrador Iron Ore',				'CAD',		2,		49.61,			NO_TARGET_PRICE]
-	shareDictWatchlist['YCA.L']   =  ['YCA',	'Anglo Pacific',					'GBX',		0,		444,			100] 
-	shareDictWatchlist['FIL.TO']  =  ['FIL',	'Filo',								'CAD',		2,		27.8,			NO_TARGET_PRICE]
+	#shareDictWatchlist['YCA.L']   =  ['YCA',	'Anglo Pacific',					'GBX',		0,		444,			100] 
+	#shareDictWatchlist['FIL.TO']  =  ['FIL',	'Filo',								'CAD',		2,		27.8,			NO_TARGET_PRICE]
 	#shareDictWatchlist['NTR']     =  ['NTR',	'Nutrien',							'USD',		2,		104,			NO_TARGET_PRICE]
 	shareDictWatchlist['DGE.L']   =  ['DGE',	'Scottish Oriental Smaller Cos',	'GBX',		0,		4036,			3000] 
+	shareDictWatchlist['SU.TO']  =  ['SU',	'Labrador Iron Ore',				'CAD',		2,		54.78,			NO_TARGET_PRICE]
+	shareDictWatchlist['FRU.TO']  =  ['FRU',	'Freehold Royalties',				'CAD',		2,		27.78,			NO_TARGET_PRICE]
+	shareDictWatchlist['PSK.TO']  =  ['PSK',	'Prarie Sky',						'CAD',		2,		42.39,			NO_TARGET_PRICE]
+	shareDictWatchlist['TPZ.TO']  =  ['TPZ',	'Prarie Sky',						'CAD',		2,		23.99,			NO_TARGET_PRICE]
+	shareDictWatchlist['LIF.TO']  =  ['LIF',	'Freehold Royalties',				'CAD',		2,		49.61,			NO_TARGET_PRICE]
+	shareDictWatchlist['ENX.PA']  =  ['ENX',	'Euronext',							'EUR',		1,		98.3,			NO_TARGET_PRICE ]
+	shareDictWatchlist['CME']     =  ['CME',	'Intercontenental Exchange',		'USD',		2,		238,			NO_TARGET_PRICE]
+	shareDictWatchlist['S68.SI']  =  ['S68',	'Intercontenental Exchange',		'SGD',		2,		11.9,			NO_TARGET_PRICE]
 	#shareDictWatchlist['CRL']  =  ['CRL',	'Charles River Lans',				'USD',		2,		458.3,			NO_TARGET_PRICE]
 
 
@@ -303,8 +306,8 @@ if __name__ == "__main__":
 		print("\n= Commodities =")
 		GetAndPrintSharePrices(pmDict, 'bid')
 
-		print("\n= Multi Asset Portfolio =")
-		GetAndPrintSharePrices(shareDictMultiAss, 'currentPrice')
+		#print("\n= Multi Asset Portfolio =")
+		#GetAndPrintSharePrices(shareDictMultiAss, 'currentPrice')
 
 		print("\n= Growth/Pen Portfolio =")
 		GetAndPrintSharePrices(shareDictGrowth, 'currentPrice')
