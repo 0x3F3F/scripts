@@ -78,7 +78,7 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	#shareDictGrowth['0P00012PN5.L']  =  ['LTG',	'Lindsell Train Global D',		'GBX',		0,		304,			NO_TARGET_PRICE ]
 	shareDictGrowth['BATS.L']  =  ['BATS',	'British American Tobacco',			'GBX',		0,		5530,			NO_TARGET_PRICE ]
 	shareDictGrowth['DGE.L']   =  ['DGE',	'Deageo',							'GBX',		0,		4036,			3000] 
-	shareDictGrowth['BRBY.L']   =  ['BRBY',	'Deageo',							'GBX',		0,		2591,			3000] 
+	#shareDictGrowth['BRBY.L']   =  ['BRBY',	'Deageo',							'GBX',		0,		2591,			3000] 
 	#shareDictGrowth['MO']      =  ['MO',	'Altria',							'USD',		2,		71.42,			NO_TARGET_PRICE ]
 
 	shareDictGrowth['RIG']     =  ['RIG',	'Transocean',						'USD',		2,		18.82,			NO_TARGET_PRICE]
@@ -112,7 +112,6 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	#shareDictWatchlist[['ADM']  =  ['ADM',	'Archer Danlels Midland',			'USD',		2,		96.91,			NO_TARGET_PRICE]
 	#shareDictWatchlist['CNQ.TO']  =  ['CNQ',	'Canadian Natural Resources',		'CAD',		1,		85.2,			NO_TARGET_PRICE]
 	#shareDictWatchlist['AGT.L']   =  ['AGT',	'AVI Growth Trust',					'GBX',		0,		222,			NO_TARGET_PRICE]
-	#shareDictWatchlist['AFM.V']   =  ['AFM',	'Alphamin',							'CAD',		2,		1.39,			NO_TARGET_PRICE]
 	#shareDictWatchlist['LSEG.L']  =  ['LSEG',	'Metal Tiger',						'GBX',		0,		9990,			NO_TARGET_PRICE] 
 	#shareDictWatchlist['X.TO']    =  ['X',		'TMX',								'CAD',		1,		140.85,			NO_TARGET_PRICE ]
 	#shareDictWatchlist['ASX.AX']  =  ['ASX',	'ASX',								'AUD',		1,		92.9,			NO_TARGET_PRICE ]
@@ -137,6 +136,7 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	shareDictWatchlist['SBSW']  =  ['SBSW',	'SBSW',								'USD',		2,		19.12,			NO_TARGET_PRICE]
 	shareDictWatchlist['SLP.L']  =  ['SLP',	'SLP',								'GBP',		2,		139,			NO_TARGET_PRICE]
 	shareDictWatchlist['FNV']     =  ['FNV',	'Franco Nevada',					'USD',		2,		158.95,			NO_TARGET_PRICE]
+	shareDictWatchlist['AFM.V']   =  ['AFM',	'Alphamin',							'CAD',		2,		1.39,			NO_TARGET_PRICE]
 
 
 
