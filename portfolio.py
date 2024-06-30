@@ -58,12 +58,12 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 
 
 	#				Yahoo Tkr	Ticker		FullName							Currency	Dps		AllTimeHigh		TargetPrice
-	shareDictIndexes['^FTSE']	= ['FTSE 100',	'FTSE 100',							'GBX',		0,		7792,			NO_TARGET_PRICE]
-	shareDictIndexes['^GSPC']	= ['S&P 500',	'S&P 500',							'USD',		0,		4720,			NO_TARGET_PRICE]
+	shareDictIndexes['^FTSE']	= ['FTSE 100',	'FTSE 100',							'GBX',		0,		8440,			NO_TARGET_PRICE]
+	shareDictIndexes['^GSPC']	= ['S&P 500',	'S&P 500',							'USD',		0,		5480,			NO_TARGET_PRICE]
 	#shareDictIndexes['EEM']		= ['EM USD',	'iShares Emerging ETF USD',			'USD',		1,		57.96,			NO_TARGET_PRICE] 
 	#shareDictIndexes['VFEM.L']	= ['EM GBP',	'Vanguard Emergin ETF GBP',			'GBX',		1,		48.57,			NO_TARGET_PRICE] 
 
-	pmDict['GC=F'] =			['Gold',	'Gold',								'USD',		0,		1838,			NO_TARGET_PRICE] 
+	pmDict['GC=F'] =			['Gold',	'Gold',								'USD',		0,		2434,			NO_TARGET_PRICE] 
 	pmDict['SI=F'] =			['Silvr',	'Silver',							'USD',		2,		46.4,			NO_TARGET_PRICE]
 	pmDict['CL=F'] =			['WTI',		'Crude',							'USD',		1,		140,			NO_TARGET_PRICE]
 	#pmDict['CNQ.TO'] =			['CNQ',		'Canadian Natural Resources',		'CAD',		2,		67.19,			NO_TARGET_PRICE]
@@ -77,7 +77,7 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	#shareDictGrowth['SST.L']   =  ['SST',	'Scottish Oriental Smaller Cos',	'GBX',		0,		1292,			800] 
 	#shareDictGrowth['0P00012PN5.L']  =  ['LTG',	'Lindsell Train Global D',		'GBX',		0,		304,			NO_TARGET_PRICE ]
 	shareDictGrowth['BATS.L']  =  ['BATS',	'British American Tobacco',			'GBX',		0,		5530,			NO_TARGET_PRICE ]
-	shareDictGrowth['DGE.L']   =  ['DGE',	'Deageo',							'GBX',		0,		4036,			3000] 
+	shareDictGrowth['DGE.L']   =  ['DGE',	'Deageo',							'GBX',		0,		4036,			NO_TARGET_PRICE ] 
 	#shareDictGrowth['BRBY.L']   =  ['BRBY',	'Deageo',							'GBX',		0,		2591,			3000] 
 	#shareDictGrowth['MO']      =  ['MO',	'Altria',							'USD',		2,		71.42,			NO_TARGET_PRICE ]
 
@@ -88,7 +88,7 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	#shareDictGrowth['EC']	   =  ['EC',	'EcoPetrol',						'USD',		2,		26.93,			NO_TARGET_PRICE]
 	#shareDictGrowth['WG.L']    =  ['WG',	'Wood Group',						'GBX',		1,		900,			120] 
 	shareDictGrowth['ECOR.L']  =  ['ECOR',	'Ecora',							'GBX',		1,		350,			NO_TARGET_PRICE] 
-	shareDictGrowth['ALS.TO']  =  ['ALS',	'Altius Minerals',					'CAD',		2,		24.1,			4]
+	shareDictGrowth['ALS.TO']  =  ['ALS',	'Altius Minerals',					'CAD',		2,		24.1,			NO_TARGET_PRICE]
 	shareDictGrowth['LIF.TO']  =  ['LIF',	'LIORC',							'CAD',		2,		49.61,			NO_TARGET_PRICE]
 	shareDictGrowth['VALE']    =  ['VALE',	'Vale',								'USD',		2,		22.81,			NO_TARGET_PRICE]
 	shareDictGrowth['GLEN.L']  =  ['GLEN',	'Glencore',							'GBX',		1,		475,			NO_TARGET_PRICE]
@@ -96,6 +96,7 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	shareDictGrowth['HCC']    =  ['HCC',	'Vale',								'USD',		2,		70.62,			NO_TARGET_PRICE]
 	#shareDictGrowth['MLX.AX']  =  ['MLX',	'Metals X',							'AUD',		2,		0.74,			NO_TARGET_PRICE]
 	shareDictGrowth['ADT1.L']  =  ['ADT',	'ADT',								'GBX',		1,		218,			NO_TARGET_PRICE]
+	shareDictGrowth['SBSW']  =  ['SBSW',	'SBSW',								'USD',		2,		19.12,			NO_TARGET_PRICE]
 	shareDictGrowth['WHC.AX']  =  ['WHC',	'WHC',								'AUD',		2,		10.52,			NO_TARGET_PRICE]
 	#shareDictGrowth['TGA.L']   =  ['TGA',	'TGA',								'GBP',		2,		1900,			NO_TARGET_PRICE]
 	#shareDictGrowth['IBZL.L']  =  ['IBZL',	'iShares Brazil',					'GBX',		1,		4004,			NO_TARGET_PRICE]
@@ -133,7 +134,6 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	shareDictWatchlist['S68.SI']  =  ['S68',	'Singapore Exchange',				'SGD',		2,		11.9,			NO_TARGET_PRICE]
 	shareDictWatchlist['DB1.DE']  =  ['DB1',	'Deutsche Borse',					'EUR',		1,		194,			NO_TARGET_PRICE ]
 	#shareDictWatchlist['CRL']  =  ['CRL',	'Charles River Lans',				'USD',		2,		458.3,			NO_TARGET_PRICE]
-	shareDictWatchlist['SBSW']  =  ['SBSW',	'SBSW',								'USD',		2,		19.12,			NO_TARGET_PRICE]
 	shareDictWatchlist['SLP.L']  =  ['SLP',	'SLP',								'GBP',		2,		139,			NO_TARGET_PRICE]
 	shareDictWatchlist['FNV']     =  ['FNV',	'Franco Nevada',					'USD',		2,		158.95,			NO_TARGET_PRICE]
 	shareDictWatchlist['AFM.V']   =  ['AFM',	'Alphamin',							'CAD',		2,		1.39,			NO_TARGET_PRICE]
