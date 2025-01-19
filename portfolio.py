@@ -145,6 +145,7 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	shareDictWatchlist['SBSW']  =  ['SBSW',	'SBSW',								'USD',		2,		19.12,			NO_TARGET_PRICE]
 	shareDictWatchlist['NE']     =  ['NE',		'Noble',							'USD',		2,		52.5,			NO_TARGET_PRICE]
 	shareDictWatchlist['AMR']    =  ['AMR',	'Vale',								'USD',		2,		439,			NO_TARGET_PRICE]
+	shareDictWatchlist['SBLK']    =  ['SBLK',	'Star Bulk Carriers',								'USD',		2,		32.32,			NO_TARGET_PRICE]
 
 
 
