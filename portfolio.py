@@ -136,16 +136,16 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	shareDictWatchlist['ASX.AX']  =  ['ASX',	'ASX',								'AUD',		1,		92.9,			NO_TARGET_PRICE ]
 	shareDictWatchlist['S68.SI']  =  ['S68',	'Singapore Exchange',				'SGD',		2,		11.9,			NO_TARGET_PRICE]
 	shareDictWatchlist['DB1.DE']  =  ['DB1',	'Deutsche Borse',					'EUR',		1,		194,			NO_TARGET_PRICE ]
-	shareDictWatchlist['CKN.L']   =  ['CKN',	'Clarksons',						'GBX',		0,		4055,			NO_TARGET_PRICE ]
+	#shareDictWatchlist['CKN.L']   =  ['CKN',	'Clarksons',						'GBX',		0,		4055,			NO_TARGET_PRICE ]
 	#shareDictWatchlist['CRL']	  =  ['CRL',	'Charles River Lans',				'USD',		2,		458.3,			NO_TARGET_PRICE]
 	#shareDictWatchlist['RPRX']    =  ['RPRX',	'Royalty Pharma',					'USD',		2,		51.75,			NO_TARGET_PRICE]
 	#shareDictWatchlist['SLP.L']  =  ['SLP',	'SLP',								'GBP',		2,		139,			NO_TARGET_PRICE]
 	#shareDictWatchlist['AFM.V']   =  ['AFM',	'Alphamin',							'CAD',		2,		1.39,			NO_TARGET_PRICE]
 	shareDictWatchlist['CNR.TO']    =  ['CNR',		'TMX',							'CAD',		1,		180,			NO_TARGET_PRICE ]
 	shareDictWatchlist['SBSW']  =  ['SBSW',	'SBSW',								'USD',		2,		19.12,			NO_TARGET_PRICE]
-	shareDictWatchlist['NE']     =  ['NE',		'Noble',							'USD',		2,		52.5,			NO_TARGET_PRICE]
 	shareDictWatchlist['AMR']    =  ['AMR',	'Vale',								'USD',		2,		439,			NO_TARGET_PRICE]
-	shareDictWatchlist['SBLK']    =  ['SBLK',	'Star Bulk Carriers',								'USD',		2,		32.32,			NO_TARGET_PRICE]
+	shareDictWatchlist['SBLK']    =  ['SBLK',	'Star Bulk Carriers',				'USD',		2,		32.32,			NO_TARGET_PRICE]
+	shareDictWatchlist['INSW']    =  ['INSW',	'INSW',								'USD',		2,		64.2,			NO_TARGET_PRICE]
 
 
 
