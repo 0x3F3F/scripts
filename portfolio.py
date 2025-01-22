@@ -104,8 +104,9 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	#shareDictGrowth['WPM.L']   =  ['WPM',		'Wheaton Precious',					'GBX',		0,		3345,			NO_TARGET_PRICE]
 	shareDictGrowth['FNV']     =  ['FNV',	'Franco Nevada',					'USD',		2,		158.95,			NO_TARGET_PRICE]
 	shareDictGrowth['SPLT.L']  =  ['SPLT',	'Platinum',							'GBX',		0,		1685,			NO_TARGET_PRICE]
-	#shareDictGrowth['RGLD']     =  ['RGLD',	'Royal Gold',						'USD',		2,		146,			NO_TARGET_PRICE]
+	#shareDictGrowth['RGLD']     =  ['RuGLD',	'Royal Gold',						'USD',		2,		146,			NO_TARGET_PRICE]
 	shareDictGrowth['SBLK']    =  ['SBLK',	'Star Bulk Carriers',				'USD',		2,		32.32,			NO_TARGET_PRICE]
+	shareDictGrowth['HSHP']    =  ['HSHP',	'HSHP',								'USD',		2,		9.49,			NO_TARGET_PRICE]
 	shareDictGrowth['INSW']    =  ['INSW',	'INSW',								'USD',		2,		64.2,			NO_TARGET_PRICE]
 
 
