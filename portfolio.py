@@ -58,15 +58,15 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 
 
 	#				Yahoo Tkr	Ticker		FullName							Currency	Dps		AllTimeHigh		TargetPrice
-	shareDictIndexes['^FTSE']	= ['FTSE 100',	'FTSE 100',							'GBX',		0,		8440,			NO_TARGET_PRICE]
-	shareDictIndexes['^GSPC']	= ['S&P 500',	'S&P 500',							'USD',		0,		5480,			NO_TARGET_PRICE]
+	shareDictIndexes['^FTSE']	= ['FTSE 100',	'FTSE 100',							'GBX',		0,		8820,			NO_TARGET_PRICE]
+	shareDictIndexes['^GSPC']	= ['S&P 500',	'S&P 500',							'USD',		0,		6154,			NO_TARGET_PRICE]
 	#shareDictIndexes['EEM']		= ['EM USD',	'iShares Emerging ETF USD',			'USD',		1,		57.96,			NO_TARGET_PRICE] 
 	#shareDictIndexes['VFEM.L']	= ['EM GBP',	'Vanguard Emergin ETF GBP',			'GBX',		1,		48.57,			NO_TARGET_PRICE] 
 
-	pmDict['GC=F'] =			['Gold',	'Gold',								'USD',		0,		2434,			NO_TARGET_PRICE] 
+	pmDict['GC=F'] =			['Gold',	'Gold',								'USD',		0,		2973,			NO_TARGET_PRICE] 
 	pmDict['SI=F'] =			['Silvr',	'Silver',							'USD',		2,		46.4,			NO_TARGET_PRICE]
-	pmDict['PL=F'] =			['Platinum',	'Platinum',							'USD',		0,		2084,			NO_TARGET_PRICE]
-	#pmDict['PA=F'] =			['Palladium',	'Palladium',						'USD',		0,		2985,			NO_TARGET_PRICE]
+	pmDict['PL=F'] =			['Platinum',	'Platinum',						'USD',		0,		2084,			NO_TARGET_PRICE]
+	#pmDict['PA=F'] =			['Palladium',	'Palladium',					'USD',		0,		2985,			NO_TARGET_PRICE]
 	pmDict['CL=F'] =			['WTI',		'Crude',							'USD',		1,		140,			NO_TARGET_PRICE]
 	#pmDict['CNQ.TO'] =			['CNQ',		'Canadian Natural Resources',		'CAD',		2,		67.19,			NO_TARGET_PRICE]
 	#pmDict['PSK.TO'] =			['PSK',		'Prarie Sky Royalty',				'CAD',		2,		40.90,			NO_TARGET_PRICE]
@@ -76,22 +76,23 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	#shareDictMultiAss['HANA.L'] = ['HANA',	'Hansa',							'GBX',		0,		215,			NO_TARGET_PRICE]
 
 	#shareDictGrowth['SST.L']   =  ['SST',	'Scottish Oriental Smaller Cos',	'GBX',		0,		1292,			800] 
-	#shareDictGrowth['0P00012PN5.L']  =  ['LTG',	'Lindsell Train Global D',		'GBX',		0,		304,			NO_TARGET_PRICE ]
+	#shareDictGrowth['0P00012PN5.L']  =  ['LTG',	'Lindsell Train Global D',	'GBX',		0,		304,			NO_TARGET_PRICE ]
 	shareDictGrowth['BATS.L']  =  ['BATS',	'British American Tobacco',			'GBX',		0,		5530,			NO_TARGET_PRICE ]
 	shareDictGrowth['DGE.L']   =  ['DGE',	'Deigeo',							'GBX',		0,		4036,			NO_TARGET_PRICE ] 
-	#shareDictGrowth['BRBY.L']   =  ['BRBY',	'Deageo',							'GBX',		0,		2591,			3000] 
+	#shareDictGrowth['BRBY.L']   =  ['BRBY',	'Deageo',						'GBX',		0,		2591,			3000] 
 	#shareDictGrowth['MO']      =  ['MO',	'Altria',							'USD',		2,		71.42,			NO_TARGET_PRICE ]
 	shareDictGrowth['BGS.L']   =  ['BGS',	'Shin Nippon',						'GBX',		1,		270,			NO_TARGET_PRICE]
 
 	shareDictGrowth['RIG']     =  ['RIG',	'Transocean',						'USD',		2,		18.82,			NO_TARGET_PRICE]
+	shareDictGrowth['SDRL']     =  ['SDRL',	'Seadrill',							'USD',		2,		54.84,			NO_TARGET_PRICE]
 	shareDictGrowth['VAL']     =  ['VAL',	'Valaris',							'USD',		2,		80,				NO_TARGET_PRICE]
 	shareDictGrowth['BORR']    =  ['BORR',	'Borr Drilling',					'USD',		2,		8.78,			NO_TARGET_PRICE]
 	#shareDictGrowth['DB1.DE']  =  ['DB1',	'Deutsche Borse',					'EUR',		1,		172.55,			NO_TARGET_PRICE ]
-	#shareDictGrowth['PBR-A']     =  ['PBR-A','Petrobas Perfs',						'USD',		2,		14.92,			NO_TARGET_PRICE]
+	#shareDictGrowth['PBR-A']     =  ['PBR-A','Petrobas Perfs',					'USD',		2,		14.92,			NO_TARGET_PRICE]
 	#shareDictGrowth['EC']	   =  ['EC',	'EcoPetrol',						'USD',		2,		26.93,			NO_TARGET_PRICE]
 	#shareDictGrowth['WG.L']    =  ['WG',	'Wood Group',						'GBX',		1,		900,			120] 
 	#shareDictGrowth['ECOR.L']  =  ['ECOR',	'Ecora',							'GBX',		1,		350,			NO_TARGET_PRICE] 
-	shareDictGrowth['ALS.TO']  =  ['ALS',	'Altius Minerals',					'CAD',		2,		24.1,			NO_TARGET_PRICE]
+	shareDictGrowth['ALS.TO']  =  ['ALS',	'Altius Minerals',					'CAD',		2,		29.0,			NO_TARGET_PRICE]
 	#shareDictGrowth['LIF.TO']  =  ['LIF',	'LIORC',							'CAD',		2,		49.61,			NO_TARGET_PRICE]
 	shareDictGrowth['VALE']    =  ['VALE',	'Vale',								'USD',		2,		22.81,			NO_TARGET_PRICE]
 	shareDictGrowth['GLEN.L']  =  ['GLEN',	'Glencore',							'GBX',		1,		475,			NO_TARGET_PRICE]
@@ -101,10 +102,10 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	shareDictGrowth['WHC.AX']  =  ['WHC',	'WHC',								'AUD',		2,		10.52,			NO_TARGET_PRICE]
 	#shareDictGrowth['TGA.L']   =  ['TGA',	'TGA',								'GBP',		2,		1900,			NO_TARGET_PRICE]
 	#shareDictGrowth['IBZL.L']  =  ['IBZL',	'iShares Brazil',					'GBX',		1,		4004,			NO_TARGET_PRICE]
-	#shareDictGrowth['WPM.L']   =  ['WPM',		'Wheaton Precious',					'GBX',		0,		3345,			NO_TARGET_PRICE]
+	#shareDictGrowth['WPM.L']   =  ['WPM',		'Wheaton Precious',				'GBX',		0,		3345,			NO_TARGET_PRICE]
 	shareDictGrowth['FNV']     =  ['FNV',	'Franco Nevada',					'USD',		2,		158.95,			NO_TARGET_PRICE]
 	shareDictGrowth['SPLT.L']  =  ['SPLT',	'Platinum',							'GBX',		0,		1685,			NO_TARGET_PRICE]
-	#shareDictGrowth['RGLD']     =  ['RuGLD',	'Royal Gold',						'USD',		2,		146,			NO_TARGET_PRICE]
+	#shareDictGrowth['RGLD']     =  ['RuGLD',	'Royal Gold',					'USD',		2,		146,			NO_TARGET_PRICE]
 	shareDictGrowth['SBLK']    =  ['SBLK',	'Star Bulk Carriers',				'USD',		2,		32.32,			NO_TARGET_PRICE]
 	shareDictGrowth['HSHP']    =  ['HSHP',	'HSHP',								'USD',		2,		9.49,			NO_TARGET_PRICE]
 	shareDictGrowth['INSW']    =  ['INSW',	'INSW',								'USD',		2,		64.2,			NO_TARGET_PRICE]
@@ -117,35 +118,35 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	#currDict['BTC-USD']		=	['BTC',		'BITCOIN',							'',			0,		NO_ALL_TIME_HIGH, NO_TARGET_PRICE]
 	#currDict['ETH-USD']		=	['ETH',		'ETHER',							'',			0,		NO_ALL_TIME_HIGH, NO_TARGET_PRICE]
 
-	shareDictWatchlist['EC']		=  ['EC',	'Ecopetrol',						'USD',		2,		19.36,			NO_TARGET_PRICE]
+	#shareDictWatchlist['EC']		=  ['EC',	'Ecopetrol',						'USD',		2,		19.36,			NO_TARGET_PRICE]
 	#shareDictWatchlist['SJT']		=  ['SJT',	'San Juan Royalty',					'USD',		2,		14,				NO_TARGET_PRICE]
 	#shareDictWatchlist['CNQ.TO']  =  ['CNQ',	'Canadian Natural Resources',		'CAD',		1,		85.2,			NO_TARGET_PRICE]
-	shareDictWatchlist['AGT.L']   =  ['AGT',	'AVI Growth Trust',					'GBX',		0,		247,			NO_TARGET_PRICE]
+	shareDictWatchlist['AGT.L']   =  ['AGT',	'AVI Growth Trust',					'GBX',		0,		256,			NO_TARGET_PRICE]
 	#shareDictWatchlist['LSEG.L']  =  ['LSEG',	'Metal Tiger',						'GBX',		0,		9990,			NO_TARGET_PRICE] 
 	#shareDictWatchlist['ASX.AX']  =  ['ASX',	'ASX',								'AUD',		1,		92.9,			NO_TARGET_PRICE ]
 	#shareDictWatchlist['ICE']     =  ['ICE',	'Intercontenental Exchange',		'USD',		2,		138.46,			NO_TARGET_PRICE]
 	#shareDictWatchlist['FGT.L']   =  ['FGT',	'FGT',								'GBX',		0,		958,			NO_TARGET_PRICE ]
-	shareDictWatchlist['AJOT.L']  =  ['AJOT',	'AVI Japan Global Ops',				'GBX',		1,		127,			NO_TARGET_PRICE]
+	shareDictWatchlist['AJOT.L']  =  ['AJOT',	'AVI Japan Global Ops',				'GBX',		1,		167,			NO_TARGET_PRICE]
 	#shareDictWatchlist['YCA.L']   =  ['YCA',	'Anglo Pacific',					'GBX',		0,		444,			100] 
 	#shareDictWatchlist['FIL.TO']  =  ['FIL',	'Filo',								'CAD',		2,		27.8,			NO_TARGET_PRICE]
 	#shareDictWatchlist['NTR']     =  ['NTR',	'Nutrien',							'USD',		2,		104,			NO_TARGET_PRICE]
-	#shareDictWatchlist['SU.TO']   =  ['SU',	'Labrador Iron Ore',					'CAD',		2,		54.78,			NO_TARGET_PRICE]
+	#shareDictWatchlist['SU.TO']   =  ['SU',	'Labrador Iron Ore',				'CAD',		2,		54.78,			NO_TARGET_PRICE]
 	#shareDictWatchlist['FRU.TO']  =  ['FRU',	'Freehold Royalties',				'CAD',		2,		27.78,			NO_TARGET_PRICE]
 	#shareDictWatchlist['PSK.TO']  =  ['PSK',	'Prarie Sky',						'CAD',		2,		42.39,			NO_TARGET_PRICE]
 	#shareDictWatchlist['TPZ.TO']  =  ['TPZ',	'Topaz',							'CAD',		2,		23.99,			NO_TARGET_PRICE]
 	#shareDictWatchlist['ENX.PA']  =  ['ENX',	'Euronext',							'EUR',		1,		98.3,			NO_TARGET_PRICE ]
-	shareDictWatchlist['CME']     =  ['CME',	'Intercontenental Exchange',		'USD',		2,		238,			NO_TARGET_PRICE]
+	shareDictWatchlist['CME']     =  ['CME',	'Intercontenental Exchange',		'USD',		2,		254,			NO_TARGET_PRICE]
 	shareDictWatchlist['ASX.AX']  =  ['ASX',	'ASX',								'AUD',		1,		92.9,			NO_TARGET_PRICE ]
-	shareDictWatchlist['S68.SI']  =  ['S68',	'Singapore Exchange',				'SGD',		2,		11.9,			NO_TARGET_PRICE]
-	shareDictWatchlist['DB1.DE']  =  ['DB1',	'Deutsche Borse',					'EUR',		1,		194,			NO_TARGET_PRICE ]
+	shareDictWatchlist['S68.SI']  =  ['S68',	'Singapore Exchange',				'SGD',		2,		14.1,			NO_TARGET_PRICE]
+	shareDictWatchlist['DB1.DE']  =  ['DB1',	'Deutsche Borse',					'EUR',		1,		251,			NO_TARGET_PRICE ]
 	#shareDictWatchlist['CKN.L']   =  ['CKN',	'Clarksons',						'GBX',		0,		4055,			NO_TARGET_PRICE ]
 	#shareDictWatchlist['CRL']	  =  ['CRL',	'Charles River Lans',				'USD',		2,		458.3,			NO_TARGET_PRICE]
 	#shareDictWatchlist['RPRX']    =  ['RPRX',	'Royalty Pharma',					'USD',		2,		51.75,			NO_TARGET_PRICE]
 	#shareDictWatchlist['SLP.L']  =  ['SLP',	'SLP',								'GBP',		2,		139,			NO_TARGET_PRICE]
 	#shareDictWatchlist['AFM.V']   =  ['AFM',	'Alphamin',							'CAD',		2,		1.39,			NO_TARGET_PRICE]
 	shareDictWatchlist['CNR.TO']    =  ['CNR',		'TMX',							'CAD',		1,		180,			NO_TARGET_PRICE ]
-	shareDictWatchlist['SBSW']  =  ['SBSW',	'SBSW',								'USD',		2,		19.12,			NO_TARGET_PRICE]
-	shareDictWatchlist['AMR']    =  ['AMR',	'Vale',								'USD',		2,		439,			NO_TARGET_PRICE]
+	shareDictWatchlist['SBSW']  =  ['SBSW',	'SBSW',									'USD',		2,		19.12,			NO_TARGET_PRICE]
+	shareDictWatchlist['AMR']    =  ['AMR',	'Vale',									'USD',		2,		439,			NO_TARGET_PRICE]
 	shareDictWatchlist['RCP.L']  = ['RCP',	'RIT Capital Partners',					'GBX',		0,		2760,			1200]
 
 
@@ -196,10 +197,12 @@ def PrintPercentOffAllTimeHigh(fPrice, v):
 	percentOff = (1 - (fPrice/v[IDX_ALL_TIME_HIGH])) * 100
 	if percentOff > 0:
 		print("\033[0;91m -", end='' ) # Turn On Red
+		print("%0.0f"%percentOff + "%", end='' ) 
 	else:
 		print("\033[0;92m +", end='' ) # Turn On Green
+		percentOff*=-1
+		print("%0.0f"%percentOff + "%", end='' ) 
 
-	print("%0.0f"%percentOff + "%", end='' ) 
 	print("\033[00m", end=' ' ) # Turn colour back to normal
 
 
