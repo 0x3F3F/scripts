@@ -98,6 +98,7 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	shareDictGrowth['VALE']    =  ['VALE',	'Vale',								'USD',		2,		22.81,			NO_TARGET_PRICE]
 	shareDictGrowth['GLEN.L']  =  ['GLEN',	'Glencore',							'GBX',		1,		475,			NO_TARGET_PRICE]
 	shareDictGrowth['HCC']    =  ['HCC',	'Vale',								'USD',		2,		70.62,			NO_TARGET_PRICE]
+	shareDictGrowth['AMR']    =  ['AMR',	'Vale',									'USD',		2,		439,			NO_TARGET_PRICE]
 	#shareDictGrowth['MLX.AX']  =  ['MLX',	'Metals X',							'AUD',		2,		0.74,			NO_TARGET_PRICE]
 	#shareDictGrowth['ADT1.L']  =  ['ADT',	'ADT',								'GBX',		1,		218,			NO_TARGET_PRICE]
 	shareDictGrowth['WHC.AX']  =  ['WHC',	'WHC',								'AUD',		2,		10.52,			NO_TARGET_PRICE]
@@ -108,8 +109,8 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	shareDictGrowth['SPLT.L']  =  ['SPLT',	'Platinum',							'GBX',		0,		1685,			NO_TARGET_PRICE]
 	#shareDictGrowth['RGLD']     =  ['RuGLD',	'Royal Gold',					'USD',		2,		146,			NO_TARGET_PRICE]
 	shareDictGrowth['SBLK']    =  ['SBLK',	'Star Bulk Carriers',				'USD',		2,		32.32,			NO_TARGET_PRICE]
-	shareDictGrowth['HSHP']    =  ['HSHP',	'HSHP',								'USD',		2,		9.49,			NO_TARGET_PRICE]
-	shareDictGrowth['INSW']    =  ['INSW',	'INSW',								'USD',		2,		64.2,			NO_TARGET_PRICE]
+	#shareDictGrowth['HSHP']    =  ['HSHP',	'HSHP',								'USD',		2,		9.49,			NO_TARGET_PRICE]
+	#shareDictGrowth['INSW']    =  ['INSW',	'INSW',								'USD',		2,		64.2,			NO_TARGET_PRICE]
 
 
 	currDict['GBPEUR=X']	=	['GBPEUR',	'GBP to EUR XRate',					'',			4,		NO_ALL_TIME_HIGH, NO_TARGET_PRICE]
@@ -147,7 +148,6 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	#shareDictWatchlist['AFM.V']   =  ['AFM',	'Alphamin',							'CAD',		2,		1.39,			NO_TARGET_PRICE]
 	shareDictWatchlist['CNR.TO']    =  ['CNR',		'TMX',							'CAD',		1,		180,			NO_TARGET_PRICE ]
 	shareDictWatchlist['SBSW']  =  ['SBSW',	'SBSW',									'USD',		2,		19.12,			NO_TARGET_PRICE]
-	shareDictWatchlist['AMR']    =  ['AMR',	'Vale',									'USD',		2,		439,			NO_TARGET_PRICE]
 	shareDictWatchlist['RCP.L']  = ['RCP',	'RIT Capital Partners',					'GBX',		0,		2760,			1200]
 
 
