@@ -79,6 +79,7 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	#shareDictGrowth['0P00012PN5.L']  =  ['LTG',	'Lindsell Train Global D',	'GBX',		0,		304,			NO_TARGET_PRICE ]
 	shareDictGrowth['BATS.L']  =  ['BATS',	'British American Tobacco',			'GBX',		0,		5530,			NO_TARGET_PRICE ]
 	shareDictGrowth['DGE.L']   =  ['DGE',	'Deigeo',							'GBX',		0,		4036,			NO_TARGET_PRICE ] 
+	shareDictGrowth['RCO.PA']  =  ['RCO',	'Remy',								'EUR',		1,		210,			NO_TARGET_PRICE ]
 	#shareDictGrowth['BRBY.L']   =  ['BRBY',	'Deageo',						'GBX',		0,		2591,			3000] 
 	#shareDictGrowth['MO']      =  ['MO',	'Altria',							'USD',		2,		71.42,			NO_TARGET_PRICE ]
 	shareDictGrowth['BGS.L']   =  ['BGS',	'Shin Nippon',						'GBX',		1,		270,			NO_TARGET_PRICE]
@@ -88,7 +89,7 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	shareDictGrowth['VAL']     =  ['VAL',	'Valaris',							'USD',		2,		80,				NO_TARGET_PRICE]
 	shareDictGrowth['NE']     =  ['NE',		'Noble',							'USD',		2,		53.44,				NO_TARGET_PRICE]
 	shareDictGrowth['BORR']    =  ['BORR',	'Borr Drilling',					'USD',		2,		8.78,			NO_TARGET_PRICE]
-	shareDictGrowth['TDW']     =  ['TDW',	'Tidewater',						'USD',		2,		105,				NO_TARGET_PRICE]
+	#shareDictGrowth['TDW']     =  ['TDW',	'Tidewater',						'USD',		2,		105,				NO_TARGET_PRICE]
 	#shareDictGrowth['DB1.DE']  =  ['DB1',	'Deutsche Borse',					'EUR',		1,		172.55,			NO_TARGET_PRICE ]
 	#shareDictGrowth['PBR-A']     =  ['PBR-A','Petrobas Perfs',					'USD',		2,		14.92,			NO_TARGET_PRICE]
 	#shareDictGrowth['EC']	   =  ['EC',	'EcoPetrol',						'USD',		2,		26.93,			NO_TARGET_PRICE]
@@ -137,7 +138,6 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	#shareDictWatchlist['FRU.TO']  =  ['FRU',	'Freehold Royalties',				'CAD',		2,		27.78,			NO_TARGET_PRICE]
 	#shareDictWatchlist['PSK.TO']  =  ['PSK',	'Prarie Sky',						'CAD',		2,		42.39,			NO_TARGET_PRICE]
 	#shareDictWatchlist['TPZ.TO']  =  ['TPZ',	'Topaz',							'CAD',		2,		23.99,			NO_TARGET_PRICE]
-	shareDictWatchlist['RCO.PA']  =  ['RCO',	'Remy',								'EUR',		1,		210,			NO_TARGET_PRICE ]
 	shareDictWatchlist['CME']     =  ['CME',	'Intercontenental Exchange',		'USD',		2,		254,			NO_TARGET_PRICE]
 	shareDictWatchlist['ASX.AX']  =  ['ASX',	'ASX',								'AUD',		1,		92.9,			NO_TARGET_PRICE ]
 	shareDictWatchlist['S68.SI']  =  ['S68',	'Singapore Exchange',				'SGD',		2,		14.1,			NO_TARGET_PRICE]
@@ -148,7 +148,7 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	#shareDictWatchlist['SLP.L']  =  ['SLP',	'SLP',								'GBP',		2,		139,			NO_TARGET_PRICE]
 	#shareDictWatchlist['AFM.V']   =  ['AFM',	'Alphamin',							'CAD',		2,		1.39,			NO_TARGET_PRICE]
 	shareDictWatchlist['CNR.TO']    =  ['CNR',		'TMX',							'CAD',		1,		180,			NO_TARGET_PRICE ]
-	shareDictWatchlist['SBSW']  =  ['SBSW',	'SBSW',									'USD',		2,		19.12,			NO_TARGET_PRICE]
+	#shareDictWatchlist['SBSW']  =  ['SBSW',	'SBSW',									'USD',		2,		19.12,			NO_TARGET_PRICE]
 	shareDictWatchlist['RCP.L']  = ['RCP',	'RIT Capital Partners',					'GBX',		0,		2760,			1200]
 
 
@@ -234,6 +234,7 @@ def GetAndPrintSharePrices(shareDict, inputIndexName):
 
 		price=""
 		yahooData = YahooFinance.Ticker(k)
+		#print("Version "+YahooFinance.__version__, end='')
 
 		try:
 			# price = yahooData.info[indexName]
@@ -241,8 +242,10 @@ def GetAndPrintSharePrices(shareDict, inputIndexName):
 			# Someties its currentPrice, regularMarketprice or neither
 			if 'currentPrice' in yahooData.info:
 				price = yahooData.info['currentPrice']
+				#print("currentPrice", end='')
 			elif 'regularMarketPrice' in yahooData.info:
 				price = yahooData.info['regularMarketPrice']
+				#print("regularMarketPrice", end='')
 			else:
 				# Use history
 					
@@ -250,6 +253,7 @@ def GetAndPrintSharePrices(shareDict, inputIndexName):
 				#with redirect_stdout(io.StringIO()) as f:
 				todayData = yahooData.history(period='1d')
 				price = todayData['Close'][0]
+			yy	#print("Close", end='')
 
 			#append last read price in case fail to read next time.
 			if len(v)==6:
@@ -265,6 +269,7 @@ def GetAndPrintSharePrices(shareDict, inputIndexName):
 			try:
 				if 'lastPrice' in yahooData.fast_info:			#this has been populated when 'info' wasn't
 					price = yahooData.fast_info['lastPrice']
+					#print("fast_info", end='')
 			except:
 				# Neither info nor fast_info working.  Try cached values
 				if len(v)==7:
