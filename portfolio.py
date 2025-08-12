@@ -113,6 +113,7 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	#shareDictGrowth['RGLD']     =  ['RuGLD',	'Royal Gold',					'USD',		2,		146,			NO_TARGET_PRICE]
 	#shareDictGrowth['HSHP']    =  ['HSHP',	'HSHP',								'USD',		2,		9.49,			NO_TARGET_PRICE]
 	shareDictGrowth['DOW']    =  ['DOW',	'DOW',								'USD',		2,		68.4,			NO_TARGET_PRICE]
+	shareDictGrowth['BAK']  =  ['BAK',	'BAK',									'USD',		2,		25.68,			NO_TARGET_PRICE]
 
 
 	currDict['GBPEUR=X']	=	['GBPEUR',	'GBP to EUR XRate',					'',			4,		NO_ALL_TIME_HIGH, NO_TARGET_PRICE]
@@ -140,7 +141,6 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	#shareDictWatchlist['CRL']	  =  ['CRL',	'Charles River Lans',				'USD',		2,		458.3,			NO_TARGET_PRICE]
 	#shareDictWatchlist['RPRX']    =  ['RPRX',	'Royalty Pharma',					'USD',		2,		51.75,			NO_TARGET_PRICE]
 	shareDictWatchlist['LYB']  =  ['LYB',	'LYB',									'USD',		2,		118.0,			NO_TARGET_PRICE]
-	shareDictWatchlist['BAK']  =  ['BAK',	'BAK',									'USD',		2,		25.68,			NO_TARGET_PRICE]
 	shareDictWatchlist['HUN']  =  ['HUN',	'HUN',									'USD',		2,		41.08,			NO_TARGET_PRICE]
 	shareDictWatchlist['RCP.L']  = ['RCP',	'RIT Capital Partners',					'GBX',		0,		2760,			1200]
 
