@@ -83,7 +83,7 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	shareDictGrowth['BGS.L']   =  ['BGS',	'Shin Nippon',						'GBX',		1,		270,			NO_TARGET_PRICE]
 	shareDictGrowth['LSEG.L']  =  ['LSEG',	'Metal Tiger',						'GBX',		0,		12185,			NO_TARGET_PRICE] 
 	shareDictGrowth['ASX.AX']  =  ['ASX',	'ASX',								'AUD',		1,		92.9,			NO_TARGET_PRICE ]
-	shareDictGrowth['PYPL']  =  ['PYPL',	'PYPL',								'USD',		2,		306,			NO_TARGET_PRICE ]
+	#shareDictGrowth['PYPL']  =  ['PYPL',	'PYPL',								'USD',		2,		306,			NO_TARGET_PRICE ]
 	shareDictGrowth['DOW']    =  ['DOW',	'DOW',								'USD',		2,		68.4,			NO_TARGET_PRICE]
 	shareDictGrowth['LYB']  =  ['LYB',	'LYB',									'USD',		2,		118.0,			NO_TARGET_PRICE]
 	shareDictGrowth['RIG']     =  ['RIG',	'Transocean',						'USD',		2,		18.82,			NO_TARGET_PRICE]
