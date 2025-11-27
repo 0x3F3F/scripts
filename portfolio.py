@@ -91,6 +91,7 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	shareDictGrowth['VAL']     =  ['VAL',	'Valaris',							'USD',		2,		80,				NO_TARGET_PRICE]
 	shareDictGrowth['NE']     =  ['NE',		'Noble',							'USD',		2,		53.44,				NO_TARGET_PRICE]
 	shareDictGrowth['BORR']    =  ['BORR',	'Borr Drilling',					'USD',		2,		8.78,			NO_TARGET_PRICE]
+	shareDictGrowth['HBR.L']   =  ['HBR',	'Harbour Energy',					'GBX',		0,		512,			NO_TARGET_PRICE]
 	shareDictGrowth['VALE']    =  ['VALE',	'Vale',								'USD',		2,		22.81,			NO_TARGET_PRICE]
 	shareDictGrowth['LIF.TO']  =  ['LIF',	'LIORC',							'CAD',		2,		49.61,			NO_TARGET_PRICE]
 	shareDictGrowth['GLEN.L']  =  ['GLEN',	'Glencore',							'GBX',		1,		575,			NO_TARGET_PRICE]
@@ -142,7 +143,6 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	shareDictWatchlist['RCP.L']  = ['RCP',	'RIT Capital Partners',					'GBX',		0,		2760,			1200]
 	#shareDictWatchlist['HCC']    =  ['HCC',	'Vale',								'USD',		2,		70.62,			NO_TARGET_PRICE]
 	shareDictWatchlist['AMR']    =  ['AMR',	'Vale',									'USD',		2,		439,			NO_TARGET_PRICE]
-	shareDictWatchlist['HBR.L']   =  ['HBR',	'Harbour Energy',					'GBX',		0,		512,			NO_TARGET_PRICE]
 
 
 
