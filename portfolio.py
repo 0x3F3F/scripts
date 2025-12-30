@@ -127,22 +127,17 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 
 	#shareDictWatchlist['EC']		=  ['EC',	'Ecopetrol',						'USD',		2,		19.36,			NO_TARGET_PRICE]
 	#shareDictWatchlist['SJT']		=  ['SJT',	'San Juan Royalty',					'USD',		2,		14,				NO_TARGET_PRICE]
-	#shareDictWatchlist['CNQ.TO']  =  ['CNQ',	'Canadian Natural Resources',		'CAD',		1,		85.2,			NO_TARGET_PRICE]
-	shareDictWatchlist['AGT.L']   =  ['AGT',	'AVI Growth Trust',					'GBX',		0,		256,			NO_TARGET_PRICE]
+	shareDictWatchlist['SEI.L']   =  ['SEI',	'Santana Enegy',					'GBX',		2,		26,				NO_TARGET_PRICE]
+	#shareDictWatchlist['AGT.L']   =  ['AGT',	'AVI Growth Trust',					'GBX',		0,		256,			NO_TARGET_PRICE]
 	#shareDictWatchlist['ICE']     =  ['ICE',	'Intercontenental Exchange',		'USD',		2,		138.46,			NO_TARGET_PRICE]
-	#shareDictWatchlist['FGT.L']   =  ['FGT',	'FGT',								'GBX',		0,		958,			NO_TARGET_PRICE ]
-	shareDictWatchlist['AJOT.L']  =  ['AJOT',	'AVI Japan Global Ops',				'GBX',		1,		175,			NO_TARGET_PRICE]
+	#shareDictWatchlist['AJOT.L']  =  ['AJOT',	'AVI Japan Global Ops',				'GBX',		1,		175,			NO_TARGET_PRICE]
 	#shareDictWatchlist['NTR']     =  ['NTR',	'Nutrien',							'USD',		2,		104,			NO_TARGET_PRICE]
 	shareDictWatchlist['CME']     =  ['CME',	'Intercontenental Exchange',		'USD',		2,		290,			NO_TARGET_PRICE]
-	#shareDictWatchlist['ASX.AX']  =  ['ASX',	'ASX',								'AUD',		1,		92.9,			NO_TARGET_PRICE ]
 	#shareDictWatchlist['S68.SI']  =  ['S68',	'Singapore Exchange',				'SGD',		2,		14.8,			NO_TARGET_PRICE]
 	shareDictWatchlist['DB1.DE']  =  ['DB1',	'Deutsche Borse',					'EUR',		1,		294,			NO_TARGET_PRICE ]
-	#shareDictWatchlist['CRL']	  =  ['CRL',	'Charles River Lans',				'USD',		2,		458.3,			NO_TARGET_PRICE]
-	#shareDictWatchlist['RPRX']    =  ['RPRX',	'Royalty Pharma',					'USD',		2,		51.75,			NO_TARGET_PRICE]
-	#shareDictWatchlist['BAK']  =  ['BAK',	'BAK',									'USD',		2,		25.68,			NO_TARGET_PRICE]
 	shareDictWatchlist['RCP.L']  = ['RCP',	'RIT Capital Partners',					'GBX',		0,		2760,			1200]
 	#shareDictWatchlist['HCC']    =  ['HCC',	'Vale',								'USD',		2,		70.62,			NO_TARGET_PRICE]
-	shareDictWatchlist['AMR']    =  ['AMR',	'Vale',									'USD',		2,		439,			NO_TARGET_PRICE]
+	#shareDictWatchlist['AMR']    =  ['AMR',	'Vale',									'USD',		2,		439,			NO_TARGET_PRICE]
 
 
 
