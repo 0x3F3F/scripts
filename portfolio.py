@@ -126,7 +126,7 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	#currDict['ETH-USD']		=	['ETH',		'ETHER',							'',			0,		NO_ALL_TIME_HIGH, NO_TARGET_PRICE]
 
 	shareDictWatchlist['ECOR.L']	=  ['ECOR',	'Ecora',							'GBX',		1,		185,			NO_TARGET_PRICE] 
-	shareDictWatchlist['IVN.TO']	=  ['IVN',	'Ivanhoe',							'CAD',		1,		21,			NO_TARGET_PRICE ]
+	shareDictWatchlist['IVN.TO']	=  ['IVN',	'Ivanhoe',							'CAD',		2,		21,			NO_TARGET_PRICE ]
 	#shareDictWatchlist['EC']		=  ['EC',	'Ecopetrol',						'USD',		2,		19.36,			NO_TARGET_PRICE]
 	#shareDictWatchlist['SJT']		=  ['SJT',	'San Juan Royalty',					'USD',		2,		14,				NO_TARGET_PRICE]
 	#shareDictWatchlist['AGT.L']   =  ['AGT',	'AVI Growth Trust',					'GBX',		0,		256,			NO_TARGET_PRICE]
