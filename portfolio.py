@@ -93,8 +93,11 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	shareDictGrowth['BORR']    =  ['BORR',	'Borr Drilling',					'USD',		2,		8.78,			NO_TARGET_PRICE]
 	shareDictGrowth['HBR.L']   =  ['HBR',	'Harbour Energy',					'GBX',		0,		512,			NO_TARGET_PRICE]
 	shareDictGrowth['SEI.L']   =  ['SEI',	'Sintana Enegy',					'GBX',		2,		26,				NO_TARGET_PRICE]
-	shareDictGrowth['VALE']    =  ['VALE',	'Vale',								'USD',		2,		22.81,			NO_TARGET_PRICE]
-	#shareDictGrowth['LIF.TO']  =  ['LIF',	'LIORC',							'CAD',		2,		49.61,			NO_TARGET_PRICE]
+	shareDictGrowth['TOU.TO']     =  ['TOU',	'Tourmaline',					'CAD',		2,		81.2,			NO_TARGET_PRICE]
+	shareDictGrowth['FRU.TO']     =  ['FRU',	'Freehold Royalties',			'CAD',		2,		17.3,			NO_TARGET_PRICE]
+	shareDictGrowth['VNOM']     =  ['VNOM',	'VNOM',								'USD',		2,		56.12,			NO_TARGET_PRICE]
+	#shareDictGrowth['VALE']    =  ['VALE',	'Vale',								'USD',		2,		22.81,			NO_TARGET_PRICE]
+	shareDictGrowth['LIF.TO']  =  ['LIF',	'LIORC',							'CAD',		2,		49.61,			NO_TARGET_PRICE]
 	shareDictGrowth['GLEN.L']  =  ['GLEN',	'Glencore',							'GBX',		1,		575,			NO_TARGET_PRICE]
 	shareDictGrowth['S32.L']  =  ['S32',	'South 32',							'GBX',		1,		300,			NO_TARGET_PRICE]
 	shareDictGrowth['IVN.TO']	=  ['IVN',	'Ivanhoe',							'CAD',		2,		21,			NO_TARGET_PRICE ]
@@ -137,9 +140,9 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	shareDictWatchlist['CME']     =  ['CME',	'Intercontenental Exchange',		'USD',		2,		290,			NO_TARGET_PRICE]
 	#shareDictWatchlist['S68.SI']  =  ['S68',	'Singapore Exchange',				'SGD',		2,		14.8,			NO_TARGET_PRICE]
 	shareDictWatchlist['DB1.DE']  =  ['DB1',	'Deutsche Borse',					'EUR',		1,		294,			NO_TARGET_PRICE ]
-	shareDictWatchlist['RCP.L']  = ['RCP',	'RIT Capital Partners',					'GBX',		0,		2760,			1200]
 	#shareDictWatchlist['HCC']    =  ['HCC',	'Vale',								'USD',		2,		70.62,			NO_TARGET_PRICE]
 	#shareDictWatchlist['AMR']    =  ['AMR',	'Vale',									'USD',		2,		439,			NO_TARGET_PRICE]
+	shareDictWatchlist['WCP.TO']     =  ['WCP',	'Whitecap',							'CAD',		2,		12.8,			NO_TARGET_PRICE]
 
 
 
