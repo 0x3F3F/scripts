@@ -103,6 +103,10 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	shareDictGrowth['IVN.TO']	=  ['IVN',	'Ivanhoe',							'CAD',		2,		21,			NO_TARGET_PRICE ]
 	shareDictGrowth['WHC.AX']  =  ['WHC',	'WHC',								'AUD',		2,		10.52,			NO_TARGET_PRICE]
 	shareDictGrowth['TGA.L']   =  ['TGA',	'TGA',								'GBP',		2,		1900,			NO_TARGET_PRICE]
+	shareDictGrowth['YAL.AX']  =  ['YAL',	'Yancaol',							'AUD',		2,		7.32,			NO_TARGET_PRICE]
+	shareDictGrowth['NHC.AX']  =  ['NHC',	'New Hope',							'AUD',		2,		7.35,			NO_TARGET_PRICE]
+	shareDictGrowth['SMR.AX']  =  ['SMR',	'Stanmore',							'AUD',		2,		4.15,			NO_TARGET_PRICE]
+	shareDictGrowth['AMR']    =  ['AMR',	'AMR',								'USD',		2,		439,			NO_TARGET_PRICE]
 	#shareDictGrowth['BRBY.L']   =  ['BRBY',	'Deageo',						'GBX',		0,		2591,			3000] 
 	#shareDictGrowth['MO']      =  ['MO',	'Altria',							'USD',		2,		71.42,			NO_TARGET_PRICE ]
 	#shareDictGrowth['HUN']  =  ['HUN',	'HUN',									'USD',		2,		41.08,			NO_TARGET_PRICE]
@@ -120,6 +124,7 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	#shareDictGrowth['RGLD']     =  ['RuGLD',	'Royal Gold',					'USD',		2,		146,			NO_TARGET_PRICE]
 	#shareDictGrowth['HSHP']    =  ['HSHP',	'HSHP',								'USD',		2,		9.49,			NO_TARGET_PRICE]
 	shareDictGrowth['VALT.L']   =  ['VALT',	'VALT',								'GBP',		0,		5520,			NO_TARGET_PRICE]
+	shareDictGrowth['PYPL']		=  ['PYPL',	'paypal',							'USD',		2,		307,			NO_TARGET_PRICE]
 
 
 	currDict['GBPEUR=X']	=	['GBPEUR',	'GBP to EUR XRate',					'',			4,		NO_ALL_TIME_HIGH, NO_TARGET_PRICE]
@@ -130,19 +135,15 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	#currDict['ETH-USD']		=	['ETH',		'ETHER',							'',			0,		NO_ALL_TIME_HIGH, NO_TARGET_PRICE]
 
 	shareDictWatchlist['ECOR.L']	=  ['ECOR',	'Ecora',							'GBX',		1,		185,			NO_TARGET_PRICE] 
-	#shareDictWatchlist['EC']		=  ['EC',	'Ecopetrol',						'USD',		2,		19.36,			NO_TARGET_PRICE]
-	#shareDictWatchlist['SJT']		=  ['SJT',	'San Juan Royalty',					'USD',		2,		14,				NO_TARGET_PRICE]
 	#shareDictWatchlist['AGT.L']   =  ['AGT',	'AVI Growth Trust',					'GBX',		0,		256,			NO_TARGET_PRICE]
 	#shareDictWatchlist['ICE']     =  ['ICE',	'Intercontenental Exchange',		'USD',		2,		138.46,			NO_TARGET_PRICE]
 	#shareDictWatchlist['AJOT.L']  =  ['AJOT',	'AVI Japan Global Ops',				'GBX',		1,		175,			NO_TARGET_PRICE]
 	#shareDictWatchlist['NTR']     =  ['NTR',	'Nutrien',							'USD',		2,		104,			NO_TARGET_PRICE]
 	shareDictWatchlist['MOS']		=  ['MOS',	'Mos',								'USD',		2,		75.65,			NO_TARGET_PRICE]
-	shareDictWatchlist['CME']     =  ['CME',	'Intercontenental Exchange',		'USD',		2,		290,			NO_TARGET_PRICE]
+	#shareDictWatchlist['CME']     =  ['CME',	'Intercontenental Exchange',		'USD',		2,		290,			NO_TARGET_PRICE]
 	#shareDictWatchlist['S68.SI']  =  ['S68',	'Singapore Exchange',				'SGD',		2,		14.8,			NO_TARGET_PRICE]
 	shareDictWatchlist['DB1.DE']  =  ['DB1',	'Deutsche Borse',					'EUR',		1,		294,			NO_TARGET_PRICE ]
 	#shareDictWatchlist['HCC']    =  ['HCC',	'Vale',								'USD',		2,		70.62,			NO_TARGET_PRICE]
-	#shareDictWatchlist['AMR']    =  ['AMR',	'Vale',									'USD',		2,		439,			NO_TARGET_PRICE]
-	shareDictWatchlist['WCP.TO']     =  ['WCP',	'Whitecap',							'CAD',		2,		12.8,			NO_TARGET_PRICE]
 
 
 
