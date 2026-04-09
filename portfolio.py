@@ -117,7 +117,7 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	#shareDictGrowth['PBR-A']     =  ['PBR-A','Petrobas Perfs',					'USD',		2,		14.92,			NO_TARGET_PRICE]
 	#shareDictGrowth['EC']	   =  ['EC',	'EcoPetrol',						'USD',		2,		26.93,			NO_TARGET_PRICE]
 	#shareDictGrowth['ALS.TO']  =  ['ALS',	'Altius Minerals',					'CAD',		2,		29.0,			NO_TARGET_PRICE]
-	shareDictGrowth['CNR.TO']    =  ['CNR',		'TMX',							'CAD',		1,		180,			NO_TARGET_PRICE ]
+	shareDictGrowth['CNR.TO']    =  ['CNR.TO',		'TMX',							'CAD',		1,		180,			NO_TARGET_PRICE ]
 	shareDictGrowth['CKN.L']   =  ['CKN',	'Clarksons',						'GBX',		0,		4675,			NO_TARGET_PRICE ]
 	shareDictGrowth['SBLK']    =  ['SBLK',	'Star Bulk Carriers',				'USD',		2,		32.32,			NO_TARGET_PRICE]
 	#shareDictGrowth['IBZL.L']  =  ['IBZL',	'iShares Brazil',					'GBX',		1,		4004,			NO_TARGET_PRICE]
