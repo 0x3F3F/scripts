@@ -129,6 +129,7 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	#shareDictGrowth['RGLD']     =  ['RuGLD',	'Royal Gold',					'USD',		2,		146,			NO_TARGET_PRICE]
 	#shareDictGrowth['HSHP']    =  ['HSHP',	'HSHP',								'USD',		2,		9.49,			NO_TARGET_PRICE]
 	shareDictGrowth['VALT.L']   =  ['VALT',	'VALT',								'GBP',		0,		5520,			NO_TARGET_PRICE]
+	shareDictGrowth['RGLD']    =  ['RGLD',	'Royal Gold',				'USD',		2,		302,			NO_TARGET_PRICE]
 	#shareDictGrowth['PYPL']		=  ['PYPL',	'paypal',							'USD',		2,		307,			NO_TARGET_PRICE]
 
 
