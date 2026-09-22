@@ -94,7 +94,6 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	shareDictGrowth['BORR']    =  ['BORR',	'Borr Drilling',					'USD',		2,		8.78,			NO_TARGET_PRICE]
 	shareDictGrowth['HBR.L']   =  ['HBR',	'Harbour Energy',					'GBX',		0,		512,			NO_TARGET_PRICE]
 	shareDictGrowth['STO.AX']   =  ['STO',	'Santos',							'AUD',		2,		8.5,			NO_TARGET_PRICE]
-	shareDictGrowth['SEI.L']   =  ['SEI',	'Sintana Enegy',					'GBX',		2,		26,				NO_TARGET_PRICE]
 	#shareDictGrowth['TOU.TO']     =  ['TOU',	'Tourmaline',					'CAD',		2,		81.2,			NO_TARGET_PRICE]
 	#shareDictGrowth['FRU.TO']     =  ['FRU',	'Freehold Royalties',			'CAD',		2,		17.3,			NO_TARGET_PRICE]
 	#shareDictGrowth['VNOM']     =  ['VNOM',	'VNOM',								'USD',		2,		56.12,			NO_TARGET_PRICE]
