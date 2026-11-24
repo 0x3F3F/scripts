@@ -99,7 +99,7 @@ def	SetupShareDictionaries(currDict, shareDictMultiAss, shareDictGrowth, shareDi
 	#shareDictGrowth['FRU.TO']     =  ['FRU',	'Freehold Royalties',			'CAD',		2,		17.3,			NO_TARGET_PRICE]
 	#shareDictGrowth['VNOM']     =  ['VNOM',	'VNOM',								'USD',		2,		56.12,			NO_TARGET_PRICE]
 	#shareDictGrowth['VALE']    =  ['VALE',	'Vale',								'USD',		2,		22.81,			NO_TARGET_PRICE]
-	shareDictGrowth['LIF.TO']  =  ['LIF',	'LIORC',							'CAD',		2,		49.61,			NO_TARGET_PRICE]
+	#shareDictGrowth['LIF.TO']  =  ['LIF',	'LIORC',							'CAD',		2,		49.61,			NO_TARGET_PRICE]
 	shareDictGrowth['GLEN.L']  =  ['GLEN',	'Glencore',							'GBX',		1,		575,			NO_TARGET_PRICE]
 	#shareDictGrowth['S32.L']  =  ['S32',	'South 32',							'GBX',		1,		300,			NO_TARGET_PRICE]
 	shareDictGrowth['IVN.TO']	=  ['IVN',	'Ivanhoe',							'CAD',		2,		21,			NO_TARGET_PRICE ]
@@ -254,7 +254,6 @@ def GetAndPrintSharePrices(shareDict, inputIndexName):
 				#with redirect_stdout(io.StringIO()) as f:
 				todayData = yahooData.history(period='1d')
 				price = todayData['Close'][0]
-			yy	#print("Close", end='')
 
 			#append last read price in case fail to read next time.
 			if len(v)==6:
